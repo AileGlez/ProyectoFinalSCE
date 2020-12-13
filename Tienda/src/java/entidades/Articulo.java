@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Articulo.findAll", query = "SELECT a FROM Articulo a")
     , @NamedQuery(name = "Articulo.findByIsbn", query = "SELECT a FROM Articulo a WHERE a.isbn = :isbn")
+    , @NamedQuery(name = "Articulo.findByNombre", query = "SELECT a FROM Articulo a WHERE a.nombre = :nombre")
     , @NamedQuery(name = "Articulo.findByStock", query = "SELECT a FROM Articulo a WHERE a.stock = :stock")
     , @NamedQuery(name = "Articulo.findByPrecio", query = "SELECT a FROM Articulo a WHERE a.precio = :precio")})
 public class Articulo implements Serializable {
@@ -45,6 +46,11 @@ public class Articulo implements Serializable {
     @Size(min = 1, max = 13)
     @Column(name = "ISBN", nullable = false, length = 13)
     private String isbn;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "NOMBRE", nullable = false, length = 50)
+    private String nombre;
     @Basic(optional = false)
     @NotNull
     @Column(name = "STOCK", nullable = false)
@@ -67,8 +73,9 @@ public class Articulo implements Serializable {
         this.isbn = isbn;
     }
 
-    public Articulo(String isbn, int stock, BigDecimal precio) {
+    public Articulo(String isbn, String nombre, int stock, BigDecimal precio) {
         this.isbn = isbn;
+        this.nombre = nombre;
         this.stock = stock;
         this.precio = precio;
     }
@@ -79,6 +86,14 @@ public class Articulo implements Serializable {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getStock() {

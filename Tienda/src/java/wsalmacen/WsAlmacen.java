@@ -26,9 +26,11 @@ public class WsAlmacen {
     // "Insert Code > Add Web Service Operation")
 
     @WebMethod(operationName = "create")
-    @Oneway
-    public void create(@WebParam(name = "entity") Articulo entity) {
+    
+    public String create(@WebParam(name = "entity") Articulo entity) {
         ejbRef.create(entity);
+        String idArticulo = entity.getIsbn(); 
+        return idArticulo;
     }
 
     @WebMethod(operationName = "edit")
@@ -37,15 +39,16 @@ public class WsAlmacen {
         ejbRef.edit(entity);
     }
 
-    @WebMethod(operationName = "find")
-    public Articulo find(@WebParam(name = "id") String id) {
-        return ejbRef.find(id);
-    }
-    
     @WebMethod(operationName = "remove")
     @Oneway
     public void remove(@WebParam(name = "entity") Articulo entity) {
         ejbRef.remove(entity);
+    }
+
+    //Encuentra por ISBN 
+    @WebMethod(operationName = "find")
+    public Articulo find(@WebParam(name = "id") String id) {
+        return ejbRef.find(id);
     }
 
     @WebMethod(operationName = "findAll")
@@ -61,6 +64,23 @@ public class WsAlmacen {
     @WebMethod(operationName = "count")
     public int count() {
         return ejbRef.count();
+    }
+    
+    @WebMethod(operationName = "findByIsbn")
+    public int findByIsbn(@WebParam(name = "isbn") String isbn) {
+        return ejbRef.findByIsbn(isbn);
+    }
+   
+    @WebMethod(operationName = "comprobarStock")
+    public Boolean comprobarStock(@WebParam(name = "ISBN")
+    String ISBN, @WebParam(name = "unidades")int unidades) {
+        boolean respuesta = false; 
+        int stock = findByIsbn(ISBN);
+        if (stock >= unidades ){
+            respuesta = true; 
+        }
+        
+        return respuesta;
     }
     
 }
