@@ -37,15 +37,15 @@ public class WsAlmacen {
         ejbRef.edit(entity);
     }
 
+    @WebMethod(operationName = "find")
+    public Articulo find(@WebParam(name = "id") String id) {
+        return ejbRef.find(id);
+    }
+    
     @WebMethod(operationName = "remove")
     @Oneway
     public void remove(@WebParam(name = "entity") Articulo entity) {
         ejbRef.remove(entity);
-    }
-
-    @WebMethod(operationName = "find")
-    public Articulo find(@WebParam(name = "id") Object id) {
-        return ejbRef.find(id);
     }
 
     @WebMethod(operationName = "findAll")
