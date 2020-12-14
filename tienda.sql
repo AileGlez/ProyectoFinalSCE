@@ -98,7 +98,7 @@ INSERT INTO CLIENTE (medioPago_id,nombre,apPat,apMAt,email,telefono,direccion,CP
 INSERT INTO EMPRESA (nombre) VALUES
 ('Empresa Libros 1'), ('Empresa Libros 2');
 
-INSERT INTO ARTICULO (ISBN,empresa_id,stock,precio) VALUES
+INSERT INTO ARTICULO (ISBN,empresa_id, nombre,stock,precio) VALUES
 ('0000000000001',1,'El Principito', 500,5.00),
 ('0000000000002',2,'Cien años de soledad', 500,10.00),
 ('0000000000003',1,'Crepusculo', 0,15.00),

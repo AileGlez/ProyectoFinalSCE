@@ -26,9 +26,7 @@ public class PojoWsAlmacen {
                   System.out.println("Es posible realizar la orden");
               }
           }
-          
-         
-         
+           
     }
 
     private static void create(wsalmacen.Articulo entity) {
@@ -48,6 +46,13 @@ public class PojoWsAlmacen {
         wsalmacen.WsAlmacen port = service.getWsAlmacenPort();
         return port.comprobarStock(isbn, unidades);
     }
+
+    private static int updateStock(java.lang.String isbn, int unidades, int arg2) {
+        wsalmacen.WsAlmacen_Service service = new wsalmacen.WsAlmacen_Service();
+        wsalmacen.WsAlmacen port = service.getWsAlmacenPort();
+        return port.updateStock(isbn, unidades, arg2);
+    }
+
     
     
 }
