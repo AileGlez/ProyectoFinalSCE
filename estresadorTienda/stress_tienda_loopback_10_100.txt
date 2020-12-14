@@ -1,0 +1,25 @@
+
+C:\Comercio\estresadorTienda>set cb="Stress_Bookstore.jar" 
+
+C:\Comercio\estresadorTienda>if [] NEQ [] goto conHost 
+
+C:\Comercio\estresadorTienda>java -Djava.rmi.server.codebase=file:///"Stress_Bookstore.jar" -jar "Stress_Bookstore.jar" Master localhost reporta 
+Distribuidor, inciando con:
+args[0]:Master
+args[1]:localhost
+args[2]:reporta
+------------------------------------------
+Distribuidor redirigiendo a args[0]:Master
+Master, inciando con:
+args[0]:localhost
+args[1]:reporta
+------------------------------------------
+================================================
+    cantidad de clientes:10
+media de tiempo de ciclo:781.0
+ dev std tiempo de ciclo:2542579.4834834835
+  tiempo de ciclo máximo:4701
+  tiempo de ciclo mínimo:9
+Distribuidor...
+
+C:\Comercio\estresadorTienda>goto fin 
