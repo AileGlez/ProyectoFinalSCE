@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Envio.findAll", query = "SELECT e FROM Envio e")
     , @NamedQuery(name = "Envio.findByIdenvio", query = "SELECT e FROM Envio e WHERE e.idenvio = :idenvio")
-    , @NamedQuery(name = "Envio.findByFechaentrega", query = "SELECT e FROM Envio e WHERE e.fechaentrega = :fechaentrega")})
+    , @NamedQuery(name = "Envio.findByFechaEntrega", query = "SELECT e FROM Envio e WHERE e.fechaentrega <= :deliveryDate")})
 public class Envio implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,6 +53,7 @@ public class Envio implements Serializable {
     @JoinColumn(name = "FACTURA_ID", referencedColumnName = "IDFACTURA", nullable = false)
     @ManyToOne(optional = false)
     private Factura facturaId;
+
 
     public Envio() {
     }
@@ -97,6 +98,9 @@ public class Envio implements Serializable {
     public void setFacturaId(Factura facturaId) {
         this.facturaId = facturaId;
     }
+    
+    
+    
 
     @Override
     public int hashCode() {
@@ -122,5 +126,6 @@ public class Envio implements Serializable {
     public String toString() {
         return "entidades.Envio[ idenvio=" + idenvio + " ]";
     }
+    
     
 }

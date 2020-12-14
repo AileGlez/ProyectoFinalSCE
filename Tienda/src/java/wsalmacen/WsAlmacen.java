@@ -66,51 +66,21 @@ public class WsAlmacen {
         return ejbRef.count();
     }
     
-    // Por el isb encuentra el stock y lo regresa. 
     @WebMethod(operationName = "findByIsbn")
     public int findByIsbn(@WebParam(name = "isbn") String isbn) {
         return ejbRef.findByIsbn(isbn);
     }
    
-      //metodo que comprueba si hay stock 
-            // movimiento 1 incrementa 
-               //         2 decrementa
-    @WebMethod(operationName = "updateStock")
-    public boolean updateStock(@WebParam(name = "ISBN")
-    String ISBN, @WebParam(name = "unidades")int unidades, int movimiento) {
-        boolean respuesta = false; 
-        Articulo entity = find(ISBN);
-        
-        if(movimiento == 1){
-            entity.setStock(entity.getStock()+unidades);
-            respuesta= true; 
-        }
-        if (movimiento == 2){
-            if(entity.getStock()-unidades < 0){
-                entity.setStock(0);
-            } else{
-                entity.setStock(entity.getStock()-unidades);
-            }
-            respuesta= true; 
-        }
-        ejbRef.edit(entity);
-        
-        return respuesta; 
-    }  
-   
-    //metodo que comprueba si hay stock 
     @WebMethod(operationName = "comprobarStock")
     public Boolean comprobarStock(@WebParam(name = "ISBN")
     String ISBN, @WebParam(name = "unidades")int unidades) {
-        boolean respuesta = false;
-       int stock = findByIsbn(ISBN);
+        boolean respuesta = false; 
+        int stock = findByIsbn(ISBN);
         if (stock >= unidades ){
-            updateStock(ISBN,unidades,2); 
             respuesta = true; 
         }
+        
         return respuesta;
-    }   
+    }
     
-  
-  
 }

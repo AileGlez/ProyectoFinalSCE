@@ -9,7 +9,6 @@ import entidades.Articulo;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -31,13 +30,12 @@ public class ArticuloFacade extends AbstractFacade<Articulo> {
         super(Articulo.class);
     }
     
-    public int findByIsbn(String isbn)
+      public int findByIsbn(String isbn)
     {
         em = getEntityManager();
         TypedQuery<Articulo> queryByName = em.createNamedQuery("Articulo.findByIsbn", Articulo.class);
         queryByName.setParameter("isbn", isbn);
         int valor = queryByName.getSingleResult().getStock();
         return valor;
-    }    
-  
+    }
 }

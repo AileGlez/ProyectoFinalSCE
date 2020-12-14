@@ -5,10 +5,16 @@
  */
 package frontera;
 
+import entidades.Articulo;
 import entidades.Envio;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -28,5 +34,12 @@ public class EnvioFacade extends AbstractFacade<Envio> {
     public EnvioFacade() {
         super(Envio.class);
     }
-    
+
+    public List<Envio> findByFechaEntrega(Date deliveryDate) throws ParseException {
+        em = getEntityManager();
+        TypedQuery<Envio> queryByName = em.createNamedQuery("Envio.findByFechaEntrega", Envio.class);
+        queryByName.setParameter("deliveryDate", deliveryDate);
+        List<Envio> listaEntrega = queryByName.getResultList();
+        return listaEntrega;
+    }    
 }
