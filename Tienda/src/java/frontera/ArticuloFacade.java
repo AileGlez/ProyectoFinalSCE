@@ -38,16 +38,6 @@ public class ArticuloFacade extends AbstractFacade<Articulo> {
         queryByName.setParameter("isbn", isbn);
         int valor = queryByName.getSingleResult().getStock();
         return valor;
-    }
-    
-     public int updateStock(String isbn, int stock) 
-    {
-        //String sStock =  Integer.toString(stock); 
-        em = getEntityManager();
-        int query = em.createNativeQuery("UPDATE ARTICULO SET stock = ? WHERE isbn = ?")
-                .setParameter(1, stock).setParameter(2, isbn).executeUpdate();
-        return query; 
-    }
-     
-   
+    }    
+  
 }

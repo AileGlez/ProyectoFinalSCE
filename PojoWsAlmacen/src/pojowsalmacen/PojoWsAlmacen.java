@@ -25,7 +25,13 @@ public class PojoWsAlmacen {
               }else{
                   System.out.println("Es posible realizar la orden");
               }
+              
+             // updateStock(a.getIsbn(),5,2);
           }
+          
+          
+              
+          
            
     }
 
@@ -47,11 +53,12 @@ public class PojoWsAlmacen {
         return port.comprobarStock(isbn, unidades);
     }
 
-    private static int updateStock(java.lang.String isbn, int unidades, int arg2) {
+    private static boolean updateStock(java.lang.String isbn, int unidades, int arg2) {
         wsalmacen.WsAlmacen_Service service = new wsalmacen.WsAlmacen_Service();
         wsalmacen.WsAlmacen port = service.getWsAlmacenPort();
         return port.updateStock(isbn, unidades, arg2);
     }
+
 
     
     
