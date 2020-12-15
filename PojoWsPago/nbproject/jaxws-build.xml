@@ -84,5 +84,22 @@
         <delete dir="${build.generated.dir}/jax-wsCache/WsArticulo"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/wsarticulo"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-wsPago, wsimport-client-WsCliente, wsimport-client-WsMedioPago, wsimport-client-WsArticulo"/>
+    <target name="wsimport-client-WsEnvio" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WsEnvio"/>
+        <property name="wsdl-WsEnvio" location="xml-resources/web-service-references/WsEnvio/wsdl/localhost_8080/PagoTienda/WsEnvio.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WsEnvio" destdir="${build.generated.dir}/jax-wsCache/WsEnvio" wsdl="${wsdl-WsEnvio}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/PagoTienda/WsEnvio?WSDL" xnocompile="true" xendorsed="true" package="wspago">
+            <depends file="${wsdl-WsEnvio}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WsEnvio"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WsEnvio">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WsEnvio" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WsEnvio"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/wspago"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-wsPago, wsimport-client-WsCliente, wsimport-client-WsMedioPago, wsimport-client-WsArticulo, wsimport-client-WsEnvio"/>
 </project>

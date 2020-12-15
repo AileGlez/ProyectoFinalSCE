@@ -8,4 +8,6 @@
     <system systemId="http://localhost:8080/PagoTienda/WsMedioPago?xsd=1" uri="wsdl/localhost_8080/PagoTienda/WsMedioPago.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/PagoTienda/WsArticulo?WSDL" uri="wsdl/localhost_8080/PagoTienda/WsArticulo.wsdl"/>
     <system systemId="http://localhost:8080/PagoTienda/WsArticulo?xsd=1" uri="wsdl/localhost_8080/PagoTienda/WsArticulo.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/PagoTienda/WsEnvio?WSDL" uri="wsdl/localhost_8080/PagoTienda/WsEnvio.wsdl"/>
+    <system systemId="http://localhost:8080/PagoTienda/WsEnvio?xsd=1" uri="wsdl/localhost_8080/PagoTienda/WsEnvio.xsd_1.xsd"/>
 </catalog>

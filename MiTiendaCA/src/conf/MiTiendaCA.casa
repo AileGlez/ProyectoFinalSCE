@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://wspago/" xmlns:ns2="http://wsenvios/" xmlns:ns3="http://wsmediopago/" xmlns:ns4="http://wsalmacen/" xmlns:ns5="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" xmlns:ns6="http://enterprise.netbeans.org/bpel/MiTienda/miTienda" xmlns:xlink="http://www.w3.org/2000/xlink">
+    <endpoints>
+        <endpoint endpoint-name="WsPagoPort" interface-name="ns1:WsPago" name="endpoint1" service-name="ns1:WsPago"/>
+        <endpoint endpoint-name="WsEnviosPort" interface-name="ns2:WsEnvios" name="endpoint2" service-name="ns2:WsEnvios"/>
+        <endpoint endpoint-name="WsMedioPagoPort" interface-name="ns3:WsMedioPago" name="endpoint3" service-name="ns3:WsMedioPago"/>
+        <endpoint endpoint-name="WsAlmacenPort" interface-name="ns4:WsAlmacen" name="endpoint4" service-name="ns4:WsAlmacen"/>
+        <endpoint endpoint-name="VentaLibrosWSDLPort" interface-name="ns5:VentaLibrosWSDLPortType" name="endpoint5" service-name="ns5:VentaLibrosWSDLService"/>
+        <endpoint display-name="VentaLibros" endpoint-name="VentaLibrosWSDLPortTypeRole_myRole" file-path="miTienda.bpel" interface-name="ns5:VentaLibrosWSDLPortType" name="endpoint6" process-name="miTienda" service-name="ns6:VentaLibros"/>
+        <endpoint display-name="ServicioAlmacen" endpoint-name="WsAlmacenRole_partnerRole" file-path="miTienda.bpel" interface-name="ns4:WsAlmacen" name="endpoint7" process-name="miTienda" service-name="ns6:ServicioAlmacen"/>
+        <endpoint display-name="ServicioMensajeria" endpoint-name="WsEnviosRole_partnerRole" file-path="miTienda.bpel" interface-name="ns2:WsEnvios" name="endpoint8" process-name="miTienda" service-name="ns6:ServicioMensajeria"/>
+        <endpoint display-name="ServicioMedioPago" endpoint-name="WsMedioPagoRole_partnerRole" file-path="miTienda.bpel" interface-name="ns3:WsMedioPago" name="endpoint9" process-name="miTienda" service-name="ns6:ServicioMedioPago"/>
+        <endpoint display-name="ServicioPago" endpoint-name="WsPagoRole_partnerRole" file-path="miTienda.bpel" interface-name="ns1:WsPago" name="endpoint10" process-name="miTienda" service-name="ns6:ServicioPago"/>
+    </endpoints>
+    <service-units>
+        <service-engine-service-unit artifacts-zip="MiTienda.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="MiTiendaCA-MiTienda" unit-name="MiTienda" unknown="false" x="166" y="99">
+            <provides endpoint="endpoint6"/>
+            <consumes endpoint="endpoint7"/>
+            <consumes endpoint="endpoint8"/>
+            <consumes endpoint="endpoint9"/>
+            <consumes endpoint="endpoint10"/>
+        </service-engine-service-unit>
+        <binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="MiTiendaCA-sun-http-binding" unit-name="sun-http-binding">
+            <ports>
+                <port x="67" y="355">
+                    <link xlink:href="../jbiServiceUnits/MiTienda/DescriptorBPEL/VentaLibrosWSDL.wsdl#xpointer(/definitions/service[@name='VentaLibrosWSDLService']/port[@name='VentaLibrosWSDLPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint5"/>
+                    <provides endpoint="endpoint5"/>
+                </port>
+                <port x="67" y="276">
+                    <link xlink:href="../jbiServiceUnits/MiTienda/ServicioAlmacen/localhost_8080/Tienda/WsAlmacen.wsdl#xpointer(/definitions/service[@name='WsAlmacen']/port[@name='WsAlmacenPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint4"/>
+                    <provides endpoint="endpoint4"/>
+                </port>
+                <port x="67" y="197">
+                    <link xlink:href="../jbiServiceUnits/MiTienda/ServicioMedioPago/localhost_8080/Tienda/WsMedioPago.wsdl#xpointer(/definitions/service[@name='WsMedioPago']/port[@name='WsMedioPagoPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint3"/>
+                    <provides endpoint="endpoint3"/>
+                </port>
+                <port x="67" y="118">
+                    <link xlink:href="../jbiServiceUnits/MiTienda/ServicioMensajeria/localhost_8080/Tienda/WsEnvios.wsdl#xpointer(/definitions/service[@name='WsEnvios']/port[@name='WsEnviosPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint2"/>
+                    <provides endpoint="endpoint2"/>
+                </port>
+                <port x="67" y="39">
+                    <link xlink:href="../jbiServiceUnits/MiTienda/ServicioPago/localhost_8080/Tienda/WsPago.wsdl#xpointer(/definitions/service[@name='WsPago']/port[@name='WsPagoPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint1"/>
+                    <provides endpoint="endpoint1"/>
+                </port>
+            </ports>
+        </binding-component-service-unit>
+    </service-units>
+    <connections>
+        <connection consumer="endpoint10" mode="" provider="endpoint1" route-type="" routing-rule="" state="unchanged"/>
+        <connection consumer="endpoint8" mode="" provider="endpoint2" route-type="" routing-rule="" state="unchanged"/>
+        <connection consumer="endpoint9" mode="" provider="endpoint3" route-type="" routing-rule="" state="unchanged"/>
+        <connection consumer="endpoint5" mode="" provider="endpoint6" route-type="" routing-rule="" state="unchanged"/>
+        <connection consumer="endpoint7" mode="" provider="endpoint4" route-type="" routing-rule="" state="unchanged"/>
+    </connections>
+    <porttypes>
+        <link xlink:href="../jbiServiceUnits/MiTienda/DescriptorBPEL/VentaLibrosWSDL.wsdl#xpointer(/definitions/portType[@name='VentaLibrosWSDLPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioAlmacen/localhost_8080/Tienda/WsAlmacen.wsdl#xpointer(/definitions/portType[@name='WsAlmacen'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioMedioPago/localhost_8080/Tienda/WsMedioPago.wsdl#xpointer(/definitions/portType[@name='WsMedioPago'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioMensajeria/localhost_8080/Tienda/WsEnvios.wsdl#xpointer(/definitions/portType[@name='WsEnvios'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioPago/localhost_8080/Tienda/WsPago.wsdl#xpointer(/definitions/portType[@name='WsPago'])" xlink:type="simple"/>
+    </porttypes>
+    <bindings>
+        <link xlink:href="../jbiServiceUnits/MiTienda/DescriptorBPEL/VentaLibrosWSDL.wsdl#xpointer(/definitions/binding[@name='VentaLibrosWSDLBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioAlmacen/localhost_8080/Tienda/WsAlmacen.wsdl#xpointer(/definitions/binding[@name='WsAlmacenPortBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioMedioPago/localhost_8080/Tienda/WsMedioPago.wsdl#xpointer(/definitions/binding[@name='WsMedioPagoPortBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioMensajeria/localhost_8080/Tienda/WsEnvios.wsdl#xpointer(/definitions/binding[@name='WsEnviosPortBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioPago/localhost_8080/Tienda/WsPago.wsdl#xpointer(/definitions/binding[@name='WsPagoPortBinding'])" xlink:type="simple"/>
+    </bindings>
+    <services>
+        <link xlink:href="../jbiServiceUnits/MiTienda/DescriptorBPEL/VentaLibrosWSDL.wsdl#xpointer(/definitions/service[@name='VentaLibrosWSDLService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioAlmacen/localhost_8080/Tienda/WsAlmacen.wsdl#xpointer(/definitions/service[@name='WsAlmacen'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioMedioPago/localhost_8080/Tienda/WsMedioPago.wsdl#xpointer(/definitions/service[@name='WsMedioPago'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioMensajeria/localhost_8080/Tienda/WsEnvios.wsdl#xpointer(/definitions/service[@name='WsEnvios'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/MiTienda/ServicioPago/localhost_8080/Tienda/WsPago.wsdl#xpointer(/definitions/service[@name='WsPago'])" xlink:type="simple"/>
+    </services>
+    <regions>
+        <region name="WSDL Endpoints" width="150"/>
+        <region name="JBI Modules" width="500"/>
+        <region name="External Modules" width="200"/>
+    </regions>
+</casa>

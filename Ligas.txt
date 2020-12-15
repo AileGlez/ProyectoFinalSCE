@@ -1,0 +1,40 @@
+Glassfish location
+Instalation 	E:\glassfish5\glassfish
+Domain Folder 	E:\glassfish5\glassfish\domains
+Domain		domain1
+Console 	http://localhost:4848/common/index.jsf
+
+Java
+C:\Program Files\Java\jdk1.8.0_211
+
+=========================================
+Almacen
+=========================================
+http://localhost:8080/Tienda/WsAlmacen?Tester
+http://localhost:8080/Tienda/WsAlmacen?WSDL
+java -jar "E:\Documentos\ITAM\Otono2020\comercio\ProyectoFinal\ProyectoFinalSCE\PojoWsAlmacen\dist\PojoWsAlmacen.jar"
+
+=========================================
+Envios
+=========================================
+http://localhost:8080/Tienda/WsEnvios?Tester
+http://localhost:8080/Tienda/WsEnvios?WSDL
+java -jar "E:\Documentos\ITAM\Otono2020\comercio\ProyectoFinal\ProyectoFinalSCE\POJOWSEntregas\dist\POJOWSEntregas.jar"
+
+=========================================
+Medio Pago
+=========================================
+http://localhost:8080/Tienda/WsMedioPago?Tester
+http://localhost:8080/Tienda/WsMedioPago?WSDL
+
+=========================================
+Pago
+=========================================
+http://localhost:8080/Tienda/WsPago?Tester
+http://localhost:8080/Tienda/WsPago?WSDL
+java -jar "E:\Documentos\ITAM\Otono2020\comercio\ProyectoFinal\ProyectoFinalSCE\PojoWsPago\dist\PojoWsPago.jar"
+
+=========================================
+ESBN
+=========================================
+http://localhost:9080/VentaLibrosWSDLService/VentaLibrosWSDLPort?WSDL

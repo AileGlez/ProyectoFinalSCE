@@ -4,26 +4,17 @@
 <xsd:import namespace="http://wsenvios/" schemaLocation="http://localhost:8080/Tienda/WsEnvios?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="remove">
-<part name="parameters" element="tns:remove"/>
-</message>
-<message name="count">
-<part name="parameters" element="tns:count"/>
-</message>
-<message name="countResponse">
-<part name="parameters" element="tns:countResponse"/>
-</message>
-<message name="find">
-<part name="parameters" element="tns:find"/>
-</message>
-<message name="findResponse">
-<part name="parameters" element="tns:findResponse"/>
-</message>
 <message name="create">
 <part name="parameters" element="tns:create"/>
 </message>
 <message name="createResponse">
 <part name="parameters" element="tns:createResponse"/>
+</message>
+<message name="findAll">
+<part name="parameters" element="tns:findAll"/>
+</message>
+<message name="findAllResponse">
+<part name="parameters" element="tns:findAllResponse"/>
 </message>
 <message name="findByFechaEntrega">
 <part name="parameters" element="tns:findByFechaEntrega"/>
@@ -34,81 +25,53 @@
 <message name="ParseException">
 <part name="fault" element="tns:ParseException"/>
 </message>
-<message name="findAll">
-<part name="parameters" element="tns:findAll"/>
+<message name="nuevoEnvio">
+<part name="parameters" element="tns:nuevoEnvio"/>
 </message>
-<message name="findAllResponse">
-<part name="parameters" element="tns:findAllResponse"/>
+<message name="nuevoEnvioResponse">
+<part name="parameters" element="tns:nuevoEnvioResponse"/>
 </message>
-<message name="findRange">
-<part name="parameters" element="tns:findRange"/>
+<message name="findByIdfactura">
+<part name="parameters" element="tns:findByIdfactura"/>
 </message>
-<message name="findRangeResponse">
-<part name="parameters" element="tns:findRangeResponse"/>
-</message>
-<message name="edit">
-<part name="parameters" element="tns:edit"/>
+<message name="findByIdfacturaResponse">
+<part name="parameters" element="tns:findByIdfacturaResponse"/>
 </message>
 <portType name="WsEnvios">
-<operation name="remove">
-<input wsam:Action="http://wsenvios/WsEnvios/remove" message="tns:remove"/>
-</operation>
-<operation name="count">
-<input wsam:Action="http://wsenvios/WsEnvios/countRequest" message="tns:count"/>
-<output wsam:Action="http://wsenvios/WsEnvios/countResponse" message="tns:countResponse"/>
-</operation>
-<operation name="find">
-<input wsam:Action="http://wsenvios/WsEnvios/findRequest" message="tns:find"/>
-<output wsam:Action="http://wsenvios/WsEnvios/findResponse" message="tns:findResponse"/>
-</operation>
 <operation name="create">
 <input wsam:Action="http://wsenvios/WsEnvios/createRequest" message="tns:create"/>
 <output wsam:Action="http://wsenvios/WsEnvios/createResponse" message="tns:createResponse"/>
+</operation>
+<operation name="findAll">
+<input wsam:Action="http://wsenvios/WsEnvios/findAllRequest" message="tns:findAll"/>
+<output wsam:Action="http://wsenvios/WsEnvios/findAllResponse" message="tns:findAllResponse"/>
 </operation>
 <operation name="findByFechaEntrega">
 <input wsam:Action="http://wsenvios/WsEnvios/findByFechaEntregaRequest" message="tns:findByFechaEntrega"/>
 <output wsam:Action="http://wsenvios/WsEnvios/findByFechaEntregaResponse" message="tns:findByFechaEntregaResponse"/>
 <fault message="tns:ParseException" name="ParseException" wsam:Action="http://wsenvios/WsEnvios/findByFechaEntrega/Fault/ParseException"/>
 </operation>
-<operation name="findAll">
-<input wsam:Action="http://wsenvios/WsEnvios/findAllRequest" message="tns:findAll"/>
-<output wsam:Action="http://wsenvios/WsEnvios/findAllResponse" message="tns:findAllResponse"/>
+<operation name="nuevoEnvio">
+<input wsam:Action="http://wsenvios/WsEnvios/nuevoEnvioRequest" message="tns:nuevoEnvio"/>
+<output wsam:Action="http://wsenvios/WsEnvios/nuevoEnvioResponse" message="tns:nuevoEnvioResponse"/>
 </operation>
-<operation name="findRange">
-<input wsam:Action="http://wsenvios/WsEnvios/findRangeRequest" message="tns:findRange"/>
-<output wsam:Action="http://wsenvios/WsEnvios/findRangeResponse" message="tns:findRangeResponse"/>
-</operation>
-<operation name="edit">
-<input wsam:Action="http://wsenvios/WsEnvios/edit" message="tns:edit"/>
+<operation name="findByIdfactura">
+<input wsam:Action="http://wsenvios/WsEnvios/findByIdfacturaRequest" message="tns:findByIdfactura"/>
+<output wsam:Action="http://wsenvios/WsEnvios/findByIdfacturaResponse" message="tns:findByIdfacturaResponse"/>
 </operation>
 </portType>
 <binding name="WsEnviosPortBinding" type="tns:WsEnvios">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="remove">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
-<operation name="count">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="find">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="create">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="findAll">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -129,7 +92,7 @@
 <soap:fault name="ParseException" use="literal"/>
 </fault>
 </operation>
-<operation name="findAll">
+<operation name="nuevoEnvio">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -138,7 +101,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="findRange">
+<operation name="findByIdfactura">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -146,12 +109,6 @@
 <output>
 <soap:body use="literal"/>
 </output>
-</operation>
-<operation name="edit">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
 </operation>
 </binding>
 <service name="WsEnvios">

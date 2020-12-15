@@ -84,6 +84,8 @@ public class PojoWsPago {
         System.out.println("RESET y ahora el total de fondos es: "+updateFondosMedPag(f.getMediopagoId().getIdmedpago(),f.getTotalapagar(),false));//este resetea los fondos para que las pruebas no se compliquen
         //SE VA EL PEDIDO A ENVÍOS
         
+        System.out.println("El idEmpresa del pedido 1 es: "+sacaIdEmpresa(f.getIdfactura()));
+        
     }
 
 
@@ -134,5 +136,13 @@ public class PojoWsPago {
         wsmediopago.WsMedioPago port = service.getWsMedioPagoPort();
         return port.updateFondosMedPag(idMedioPago, monto, decrementa);
     }
+
+    private static int sacaIdEmpresa(int idFactura) {
+        wspago.WsEnvio_Service service = new wspago.WsEnvio_Service();
+        wspago.WsEnvio port = service.getWsEnvioPort();
+        return port.sacaIdEmpresa(idFactura);
+    }
+    
+    
     
 }

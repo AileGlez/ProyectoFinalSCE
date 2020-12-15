@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <nextCatalog catalog="nbproject/private/retriever/catalog.xml"/>
-    <system systemId="http://localhost:8080/Tienda/WsEnvios?WSDL" uri="src/ServicioEnvios/localhost_8080/Tienda/WsEnvios.wsdl"/>
-    <system systemId="http://localhost:8080/Tienda/WsEnvios?xsd=1" uri="src/ServicioEnvios/localhost_8080/Tienda/WsEnvios.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/Tienda/WsMedioPago?WSDL" uri="src/ServicioMedioPago/localhost_8080/Tienda/WsMedioPago.wsdl"/>
-    <system systemId="http://localhost:8080/Tienda/WsMedioPago?xsd=1" uri="src/ServicioMedioPago/localhost_8080/Tienda/WsMedioPago.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/Tienda/WsPago?WSDL" uri="src/ServicioPago/localhost_8080/Tienda/WsPago.wsdl"/>
-    <system systemId="http://localhost:8080/Tienda/WsPago?xsd=1" uri="src/ServicioPago/localhost_8080/Tienda/WsPago.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Tienda/WsAlmacen?WSDL" uri="src/ServicioAlmacen/localhost_8080/Tienda/WsAlmacen.wsdl"/>
     <system systemId="http://localhost:8080/Tienda/WsAlmacen?xsd=1" uri="src/ServicioAlmacen/localhost_8080/Tienda/WsAlmacen.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Tienda/WsEnvios?WSDL" uri="src/ServicioMensajeria/localhost_8080/Tienda/WsEnvios.wsdl"/>
+    <system systemId="http://localhost:8080/Tienda/WsEnvios?xsd=1" uri="src/ServicioMensajeria/localhost_8080/Tienda/WsEnvios.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Tienda/WsPago?WSDL" uri="src/ServicioPago/localhost_8080/Tienda/WsPago.wsdl"/>
+    <system systemId="http://localhost:8080/Tienda/WsPago?xsd=1" uri="src/ServicioPago/localhost_8080/Tienda/WsPago.xsd_1.xsd"/>
+    <nextCatalog catalog="nbproject/private/retriever/catalog.xml"/>
+    <system systemId="http://localhost:8080/Tienda/WsMedioPago?WSDL" uri="src/ServicioMedioPago/localhost_8080/Tienda/WsMedioPago.wsdl"/>
+    <system systemId="http://localhost:8080/Tienda/WsMedioPago?xsd=1" uri="src/ServicioMedioPago/localhost_8080/Tienda/WsMedioPago.xsd_1.xsd"/>
 </catalog>

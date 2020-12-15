@@ -6,8 +6,8 @@
     <types/>
     <message name="VentaLibrosWSDLOperationRequest">
         <part name="ISBN" type="xsd:string"/>
-        <part name="idCliente" type="xsd:string"/>
-        <part name="unidades" type="xsd:int"/>
+        <part name="idUsuario" type="xsd:string"/>
+        <part name="unidades" type="xsd:string"/>
     </message>
     <message name="VentaLibrosWSDLOperationResponse">
         <part name="resultado" type="xsd:string"/>

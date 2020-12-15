@@ -6,15 +6,9 @@
 
 <xs:element name="comprobarStockResponse" type="tns:comprobarStockResponse"/>
 
-<xs:element name="count" type="tns:count"/>
-
-<xs:element name="countResponse" type="tns:countResponse"/>
-
 <xs:element name="create" type="tns:create"/>
 
 <xs:element name="createResponse" type="tns:createResponse"/>
-
-<xs:element name="edit" type="tns:edit"/>
 
 <xs:element name="empresa" type="tns:empresa"/>
 
@@ -28,13 +22,7 @@
 
 <xs:element name="findByIsbnResponse" type="tns:findByIsbnResponse"/>
 
-<xs:element name="findRange" type="tns:findRange"/>
-
-<xs:element name="findRangeResponse" type="tns:findRangeResponse"/>
-
 <xs:element name="findResponse" type="tns:findResponse"/>
-
-<xs:element name="remove" type="tns:remove"/>
 
 <xs:element name="updateStock" type="tns:updateStock"/>
 
@@ -67,22 +55,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="remove">
-<xs:sequence>
-<xs:element name="entity" type="tns:articulo" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="count">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="countResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="comprobarStock">
 <xs:sequence>
 <xs:element name="ISBN" type="xs:string" minOccurs="0"/>
@@ -105,12 +77,6 @@
 <xs:complexType name="createResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="edit">
-<xs:sequence>
-<xs:element name="entity" type="tns:articulo" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -149,18 +115,6 @@
 <xs:complexType name="findByIsbnResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="findRange">
-<xs:sequence>
-<xs:element name="range" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="findRangeResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:articulo" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

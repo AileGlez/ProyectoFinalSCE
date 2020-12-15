@@ -10,121 +10,142 @@
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2"
     xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
     xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
-   <import namespace="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" location="DescriptorBPEL/VentaLibrosWSDL.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
-   <import namespace="http://enterprise.netbeans.org/bpel/WsAlmacenWrapper" location="WsAlmacenWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
-   <import namespace="http://wsalmacen/" location="http://localhost:8080/Tienda/WsAlmacen?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
-   <import namespace="http://enterprise.netbeans.org/bpel/WsEnviosWrapper" location="WsEnviosWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
-   <import namespace="http://wsenvios/" location="http://localhost:8080/Tienda/WsEnvios?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
-   <import namespace="http://enterprise.netbeans.org/bpel/WsMedioPagoWrapper" location="WsMedioPagoWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
-   <import namespace="http://wsmediopago/" location="http://localhost:8080/Tienda/WsMedioPago?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
-   <import namespace="http://enterprise.netbeans.org/bpel/WsPagoWrapper" location="WsPagoWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
-   <import namespace="http://wspago/" location="http://localhost:8080/Tienda/WsPago?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
-   <partnerLinks>
-      <partnerLink name="ServicioAlmacen" xmlns:tns="http://enterprise.netbeans.org/bpel/WsAlmacenWrapper" partnerLinkType="tns:WsAlmacenLinkType" partnerRole="WsAlmacenRole"/>
-      <partnerLink name="ServicioEnvios" xmlns:tns="http://enterprise.netbeans.org/bpel/WsEnviosWrapper" partnerLinkType="tns:WsEnviosLinkType" partnerRole="WsEnviosRole"/>
-      <partnerLink name="ServicioMedioPago" xmlns:tns="http://enterprise.netbeans.org/bpel/WsMedioPagoWrapper" partnerLinkType="tns:WsMedioPagoLinkType" partnerRole="WsMedioPagoRole"/>
-      <partnerLink name="ServicioPago" xmlns:tns="http://enterprise.netbeans.org/bpel/WsPagoWrapper" partnerLinkType="tns:WsPagoLinkType" partnerRole="WsPagoRole"/>
-      <partnerLink name="VentaLibros" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" partnerLinkType="tns:VentaLibrosWSDL" myRole="VentaLibrosWSDLPortTypeRole"/>
-   </partnerLinks>
-   <variables>
-      <variable name="ComprobarStockOut3" xmlns:tns="http://wsalmacen/" messageType="tns:comprobarStockResponse"/>
-      <variable name="ComprobarStockIn3" xmlns:tns="http://wsalmacen/" messageType="tns:comprobarStock"/>
-      <variable name="UpdateStockOut" xmlns:tns="http://wsalmacen/" messageType="tns:updateStockResponse"/>
-      <variable name="UpdateStockIn" xmlns:tns="http://wsalmacen/" messageType="tns:updateStock"/>
-      <variable name="ComprobarStockOut2" xmlns:tns="http://wsalmacen/" messageType="tns:comprobarStockResponse"/>
-      <variable name="ComprobarStockIn2" xmlns:tns="http://wsalmacen/" messageType="tns:comprobarStock"/>
-      <variable name="ComprobarStockOut1" xmlns:tns="http://wsalmacen/" messageType="tns:comprobarStockResponse"/>
-      <variable name="ComprobarStockIn1" xmlns:tns="http://wsalmacen/" messageType="tns:comprobarStock"/>
-      <variable name="UpdateFondosMedPagOut" xmlns:tns="http://wsmediopago/" messageType="tns:updateFondosMedPagResponse"/>
-      <variable name="UpdateFondosMedPagIn" xmlns:tns="http://wsmediopago/" messageType="tns:updateFondosMedPag"/>
-      <variable name="HayFondosOut" xmlns:tns="http://wspago/" messageType="tns:hayFondosResponse"/>
-      <variable name="HayFondosIn" xmlns:tns="http://wspago/" messageType="tns:hayFondos"/>
-      <variable name="NuevoPedidoOut" xmlns:tns="http://wspago/" messageType="tns:nuevoPedidoResponse"/>
-      <variable name="NuevoPedidoIn" xmlns:tns="http://wspago/" messageType="tns:nuevoPedido"/>
-      <variable name="ComprobarStockOut" xmlns:tns="http://wsalmacen/" messageType="tns:comprobarStockResponse"/>
-      <variable name="ComprobarStockIn" xmlns:tns="http://wsalmacen/" messageType="tns:comprobarStock"/>
-      <variable name="VentaLibrosWSDLOperationOut2" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" messageType="tns:VentaLibrosWSDLOperationResponse"/>
-      <variable name="VentaLibrosWSDLOperationOut1" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" messageType="tns:VentaLibrosWSDLOperationResponse"/>
-      <variable name="VentaLibrosWSDLOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" messageType="tns:VentaLibrosWSDLOperationResponse"/>
-      <variable name="VentaLibrosWSDLOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" messageType="tns:VentaLibrosWSDLOperationRequest"/>
-   </variables>
-   <sequence>
-      <receive name="Recepcion" createInstance="yes" partnerLink="VentaLibros" operation="VentaLibrosWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" portType="tns:VentaLibrosWSDLPortType" variable="VentaLibrosWSDLOperationIn"/>
-      <assign name="AsigStock">
-         <copy>
-            <from variable="VentaLibrosWSDLOperationIn" part="ISBN"/>
-            <to>$ComprobarStockIn2.parameters/ISBN</to>
-         </copy>
-         <copy>
-            <from variable="VentaLibrosWSDLOperationIn" part="unidades"/>
-            <to>$ComprobarStockIn2.parameters/unidades</to>
-         </copy>
-      </assign>
-      <invoke name="ComprobarStock" partnerLink="ServicioAlmacen" operation="comprobarStock" xmlns:tns="http://wsalmacen/" portType="tns:WsAlmacen" inputVariable="ComprobarStockIn3" outputVariable="ComprobarStockOut3"/>
-      <if name="If1">
-         <sequence name="Sequence1">
-            <assign name="AsigPedido">
-               <copy>
-                  <from variable="VentaLibrosWSDLOperationIn" part="ISBN"/>
-                  <to>$NuevoPedidoIn.parameters/ISBN</to>
-               </copy>
-               <copy>
-                  <from variable="VentaLibrosWSDLOperationIn" part="idCliente"/>
-                  <to>$NuevoPedidoIn.parameters/idCliente</to>
-               </copy>
-               <copy>
-                  <from variable="VentaLibrosWSDLOperationIn" part="unidades"/>
-                  <to>$NuevoPedidoIn.parameters/cant</to>
-               </copy>
-            </assign>
-            <invoke name="NuevoPedido" partnerLink="ServicioPago" operation="nuevoPedido" xmlns:tns="http://wspago/" portType="tns:WsPago" inputVariable="NuevoPedidoIn" outputVariable="NuevoPedidoOut"/>
-            <assign name="AsigPago">
-               <copy>
-                  <from>$NuevoPedidoOut.parameters/return</from>
-                  <to>$HayFondosIn.parameters/facturaId</to>
-               </copy>
-            </assign>
-            <invoke name="ComprobarPago" partnerLink="ServicioPago" operation="hayFondos" xmlns:tns="http://wspago/" portType="tns:WsPago" inputVariable="HayFondosIn" outputVariable="HayFondosOut"/>
-            <if name="If2">
-               <sequence name="Sequence3">
-                  <assign name="AsigMedioPago">
-                     <copy>
-                        <from>true()</from>
-                        <to>$UpdateFondosMedPagIn.parameters/decrementa</to>
-                     </copy>
-                  </assign>
-                  <invoke name="ActualizarMedioPago" partnerLink="ServicioMedioPago" operation="updateFondosMedPag" xmlns:tns="http://wsmediopago/" portType="tns:WsMedioPago" inputVariable="UpdateFondosMedPagIn" outputVariable="UpdateFondosMedPagOut"/>
-               </sequence>
-               <else>
-                  <sequence name="Sequence4">
-                     <assign name="AsigStockVenta"/>
-                     <invoke name="ActualizarStock" partnerLink="ServicioAlmacen" operation="updateStock" xmlns:tns="http://wsalmacen/" portType="tns:WsAlmacen" inputVariable="UpdateStockIn" outputVariable="UpdateStockOut"/>
-                     <assign name="AsigNoPago">
-                        <copy>
-                           <from>'No hay suficientes fondos'</from>
-                           <to variable="VentaLibrosWSDLOperationOut1" part="resultado"/>
-                        </copy>
-                     </assign>
-                     <reply name="RespuestaNoPago" partnerLink="VentaLibros" operation="VentaLibrosWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" portType="tns:VentaLibrosWSDLPortType" variable="VentaLibrosWSDLOperationOut1"/>
-                  </sequence>
-               </else>
-            </if>
-         </sequence>
-         <else>
+    <import namespace="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" location="DescriptorBPEL/VentaLibrosWSDL.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WsAlmacenWrapper" location="WsAlmacenWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsalmacen/" location="http://localhost:8080/Tienda/WsAlmacen?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WsEnviosWrapper" location="WsEnviosWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsenvios/" location="http://localhost:8080/Tienda/WsEnvios?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WsMedioPagoWrapper" location="WsMedioPagoWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsmediopago/" location="http://localhost:8080/Tienda/WsMedioPago?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WsPagoWrapper" location="WsPagoWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wspago/" location="http://localhost:8080/Tienda/WsPago?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="ServicioAlmacen" xmlns:tns="http://enterprise.netbeans.org/bpel/WsAlmacenWrapper" partnerLinkType="tns:WsAlmacenLinkType" partnerRole="WsAlmacenRole"/>
+        <partnerLink name="ServicioMensajeria" xmlns:tns="http://enterprise.netbeans.org/bpel/WsEnviosWrapper" partnerLinkType="tns:WsEnviosLinkType" partnerRole="WsEnviosRole"/>
+        <partnerLink name="ServicioMedioPago" xmlns:tns="http://enterprise.netbeans.org/bpel/WsMedioPagoWrapper" partnerLinkType="tns:WsMedioPagoLinkType" partnerRole="WsMedioPagoRole"/>
+        <partnerLink name="ServicioPago" xmlns:tns="http://enterprise.netbeans.org/bpel/WsPagoWrapper" partnerLinkType="tns:WsPagoLinkType" partnerRole="WsPagoRole"/>
+        <partnerLink name="VentaLibros" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" partnerLinkType="tns:VentaLibrosWSDL" myRole="VentaLibrosWSDLPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="NuevoEnvioOut" xmlns:tns="http://wsenvios/" messageType="tns:nuevoEnvioResponse"/>
+        <variable name="NuevoEnvioIn" xmlns:tns="http://wsenvios/" messageType="tns:nuevoEnvio"/>
+        <variable name="UpdateStockOut" xmlns:tns="http://wsalmacen/" messageType="tns:updateStockResponse"/>
+        <variable name="UpdateStockIn" xmlns:tns="http://wsalmacen/" messageType="tns:updateStock"/>
+        <variable name="DecrementaFondosOut" xmlns:tns="http://wsmediopago/" messageType="tns:decrementaFondosResponse"/>
+        <variable name="DecrementaFondosIn" xmlns:tns="http://wsmediopago/" messageType="tns:decrementaFondos"/>
+        <variable name="HayFondosOut" xmlns:tns="http://wspago/" messageType="tns:hayFondosResponse"/>
+        <variable name="HayFondosIn" xmlns:tns="http://wspago/" messageType="tns:hayFondos"/>
+        <variable name="NuevoPedidoOut" xmlns:tns="http://wspago/" messageType="tns:nuevoPedidoResponse"/>
+        <variable name="NuevoPedidoIn" xmlns:tns="http://wspago/" messageType="tns:nuevoPedido"/>
+        <variable name="ComprobarStockOut" xmlns:tns="http://wsalmacen/" messageType="tns:comprobarStockResponse"/>
+        <variable name="ComprobarStockIn" xmlns:tns="http://wsalmacen/" messageType="tns:comprobarStock"/>
+        <variable name="VentaLibrosWSDLOperationOut2" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" messageType="tns:VentaLibrosWSDLOperationResponse"/>
+        <variable name="VentaLibrosWSDLOperationOut1" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" messageType="tns:VentaLibrosWSDLOperationResponse"/>
+        <variable name="VentaLibrosWSDLOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" messageType="tns:VentaLibrosWSDLOperationResponse"/>
+        <variable name="VentaLibrosWSDLOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" messageType="tns:VentaLibrosWSDLOperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="Recepcion" createInstance="yes" partnerLink="VentaLibros" operation="VentaLibrosWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" portType="tns:VentaLibrosWSDLPortType" variable="VentaLibrosWSDLOperationIn"/>
+        <assign name="AsigStock">
+            <copy>
+                <from variable="VentaLibrosWSDLOperationIn" part="ISBN"/>
+                <to>$ComprobarStockIn.parameters/ISBN</to>
+            </copy>
+            <copy>
+                <from variable="VentaLibrosWSDLOperationIn" part="unidades"/>
+                <to>$ComprobarStockIn.parameters/unidades</to>
+            </copy>
+        </assign>
+        <invoke name="ComprobarStock" partnerLink="ServicioAlmacen" operation="comprobarStock" xmlns:tns="http://wsalmacen/" portType="tns:WsAlmacen" inputVariable="ComprobarStockIn" outputVariable="ComprobarStockOut"/>
+        <if name="If1">
+            <condition>true() and $ComprobarStockOut.parameters/return</condition>
             <sequence name="Sequence2">
-               <assign name="AsigNoStock">
-                  <copy>
-                     <from>'Stock en almacen insuficiente'</from>
-                     <to variable="VentaLibrosWSDLOperationOut2" part="resultado"/>
-                  </copy>
-               </assign>
-               <reply name="RespuestaNoStock" partnerLink="VentaLibros" operation="VentaLibrosWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" portType="tns:VentaLibrosWSDLPortType" variable="VentaLibrosWSDLOperationOut2"/>
+                <assign name="AsigPedido">
+                    <copy>
+                        <from variable="VentaLibrosWSDLOperationIn" part="ISBN"/>
+                        <to>$NuevoPedidoIn.parameters/ISBN</to>
+                    </copy>
+                    <copy>
+                        <from variable="VentaLibrosWSDLOperationIn" part="idUsuario"/>
+                        <to>$NuevoPedidoIn.parameters/idCliente</to>
+                    </copy>
+                    <copy>
+                        <from variable="VentaLibrosWSDLOperationIn" part="unidades"/>
+                        <to>$NuevoPedidoIn.parameters/cant</to>
+                    </copy>
+                </assign>
+                <invoke name="NuevoPedido" partnerLink="ServicioPago" operation="nuevoPedido" xmlns:tns="http://wspago/" portType="tns:WsPago" inputVariable="NuevoPedidoIn" outputVariable="NuevoPedidoOut"/>
+                <assign name="AsigFondos">
+                    <copy>
+                        <from>$NuevoPedidoOut.parameters/return</from>
+                        <to>$HayFondosIn.parameters/facturaId</to>
+                    </copy>
+                </assign>
+                <invoke name="ComprobarFondos" partnerLink="ServicioPago" operation="hayFondos" xmlns:tns="http://wspago/" portType="tns:WsPago" inputVariable="HayFondosIn" outputVariable="HayFondosOut"/>
+                <if name="If2">
+                    <condition>true() and $HayFondosOut.parameters/return</condition>
+                    <sequence name="Sequence4">
+                        <assign name="AsigMetodoPago">
+                            <copy>
+                                <from>$NuevoPedidoOut.parameters/return</from>
+                                <to>$DecrementaFondosIn.parameters/idFactura</to>
+                            </copy>
+                        </assign>
+                        <invoke name="CobroMetodoPago" partnerLink="ServicioMedioPago" operation="decrementaFondos" xmlns:tns="http://wsmediopago/" portType="tns:WsMedioPago" inputVariable="DecrementaFondosIn" outputVariable="DecrementaFondosOut"/>
+                    </sequence>
+                    <else>
+                        <sequence name="Sequence3">
+                            <assign name="AsigLiberarStock">
+                                <copy>
+                                    <from variable="VentaLibrosWSDLOperationIn" part="ISBN"/>
+                                    <to>$UpdateStockIn.parameters/ISBN</to>
+                                </copy>
+                                <copy>
+                                    <from variable="VentaLibrosWSDLOperationIn" part="unidades"/>
+                                    <to>$UpdateStockIn.parameters/unidades</to>
+                                </copy>
+                                <copy>
+                                    <from>2</from>
+                                    <to>$UpdateStockIn.parameters/arg2</to>
+                                </copy>
+                            </assign>
+                            <invoke name="LiberarStock" partnerLink="ServicioAlmacen" operation="updateStock" xmlns:tns="http://wsalmacen/" portType="tns:WsAlmacen" inputVariable="UpdateStockIn" outputVariable="UpdateStockOut"/>
+                            <assign name="AsigNoFondos">
+                                <copy>
+                                    <from>'Fondos Insuficientes en el Metodo de Pago'</from>
+                                    <to variable="VentaLibrosWSDLOperationOut1" part="resultado"/>
+                                </copy>
+                            </assign>
+                            <reply name="RespuestaNoFondos" partnerLink="VentaLibros" operation="VentaLibrosWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" portType="tns:VentaLibrosWSDLPortType" variable="VentaLibrosWSDLOperationOut1"/>
+                        </sequence>
+                    </else>
+                </if>
             </sequence>
-         </else>
-      </if>
-      <assign name="AsigOrden"/>
-      <invoke name="OrdenEnvio"/>
-      <assign name="AsigOk"/>
-      <reply name="RespuestaOk" partnerLink="VentaLibros" operation="VentaLibrosWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" portType="tns:VentaLibrosWSDLPortType" variable="VentaLibrosWSDLOperationOut"/>
-   </sequence>
+            <else>
+                <sequence name="Sequence1">
+                    <assign name="AsigNoStock">
+                        <copy>
+                            <from>'Stock en almacen insuficiente'</from>
+                            <to variable="VentaLibrosWSDLOperationOut" part="resultado"/>
+                        </copy>
+                    </assign>
+                    <reply name="RespuestaNoStock" partnerLink="VentaLibros" operation="VentaLibrosWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" portType="tns:VentaLibrosWSDLPortType" variable="VentaLibrosWSDLOperationOut"/>
+                </sequence>
+            </else>
+        </if>
+        <assign name="AsigOrden">
+            <copy>
+                <from>$NuevoPedidoOut.parameters/return</from>
+                <to>$NuevoEnvioIn.parameters/idFactura</to>
+            </copy>
+        </assign>
+        <invoke name="EnvioOrden" partnerLink="ServicioMensajeria" operation="nuevoEnvio" xmlns:tns="http://wsenvios/" portType="tns:WsEnvios" inputVariable="NuevoEnvioIn" outputVariable="NuevoEnvioOut"/>
+        <assign name="AsigOK">
+            <copy>
+                <from>concat('El pedido con el ID: ', $NuevoPedidoOut.parameters/return, ' y el número de envío: ', $NuevoEnvioOut.parameters/return, ' fue realizado con exito!')</from>
+                <to variable="VentaLibrosWSDLOperationOut2" part="resultado"/>
+            </copy>
+        </assign>
+        <reply name="RespuestaOK" partnerLink="VentaLibros" operation="VentaLibrosWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/MiTienda/DescriptorBPEL/VentaLibrosWSDL" portType="tns:VentaLibrosWSDLPortType" variable="VentaLibrosWSDLOperationOut2"/>
+    </sequence>
 </process>
