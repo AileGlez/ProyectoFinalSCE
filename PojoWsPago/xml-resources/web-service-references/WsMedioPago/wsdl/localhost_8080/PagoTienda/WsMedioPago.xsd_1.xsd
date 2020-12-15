@@ -1,18 +1,34 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://wsmediopago/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://wsmediopago/">
 
+<xs:element name="articulo" type="tns:articulo"/>
+
+<xs:element name="cliente" type="tns:cliente"/>
+
 <xs:element name="count" type="tns:count"/>
 
 <xs:element name="countResponse" type="tns:countResponse"/>
 
 <xs:element name="create" type="tns:create"/>
 
+<xs:element name="decrementaFondos" type="tns:decrementaFondos"/>
+
+<xs:element name="decrementaFondosResponse" type="tns:decrementaFondosResponse"/>
+
 <xs:element name="edit" type="tns:edit"/>
+
+<xs:element name="empresa" type="tns:empresa"/>
+
+<xs:element name="factura" type="tns:factura"/>
 
 <xs:element name="find" type="tns:find"/>
 
 <xs:element name="findAll" type="tns:findAll"/>
 
 <xs:element name="findAllResponse" type="tns:findAllResponse"/>
+
+<xs:element name="findByIdfactura" type="tns:findByIdfactura"/>
+
+<xs:element name="findByIdfacturaResponse" type="tns:findByIdfacturaResponse"/>
 
 <xs:element name="findRange" type="tns:findRange"/>
 
@@ -79,9 +95,75 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="findByIdfactura">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findByIdfacturaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:factura" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="factura">
+<xs:sequence>
+<xs:element name="articuloIsbn" type="tns:articulo" minOccurs="0"/>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="clienteId" type="tns:cliente" minOccurs="0"/>
+<xs:element name="idfactura" type="xs:int" minOccurs="0"/>
+<xs:element name="mediopagoId" type="tns:mediopago" minOccurs="0"/>
+<xs:element name="totalapagar" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="articulo">
+<xs:sequence>
+<xs:element name="empresaId" type="tns:empresa" minOccurs="0"/>
+<xs:element name="isbn" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:decimal" minOccurs="0"/>
+<xs:element name="stock" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="empresa">
+<xs:sequence>
+<xs:element name="idempresa" type="xs:int" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cliente">
+<xs:sequence>
+<xs:element name="apmat" type="xs:string" minOccurs="0"/>
+<xs:element name="appat" type="xs:string" minOccurs="0"/>
+<xs:element name="cp" type="xs:int"/>
+<xs:element name="direccion" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="idcliente" type="xs:int" minOccurs="0"/>
+<xs:element name="mediopagoId" type="tns:mediopago" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="telefono" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="create">
 <xs:sequence>
 <xs:element name="entity" type="tns:mediopago" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="decrementaFondos">
+<xs:sequence>
+<xs:element name="idFactura" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="decrementaFondosResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:decimal" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

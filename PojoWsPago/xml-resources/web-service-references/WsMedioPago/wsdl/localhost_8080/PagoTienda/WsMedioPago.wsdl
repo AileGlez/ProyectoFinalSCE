@@ -22,6 +22,12 @@
 <message name="create">
 <part name="parameters" element="tns:create"/>
 </message>
+<message name="findByIdfactura">
+<part name="parameters" element="tns:findByIdfactura"/>
+</message>
+<message name="findByIdfacturaResponse">
+<part name="parameters" element="tns:findByIdfacturaResponse"/>
+</message>
 <message name="findAll">
 <part name="parameters" element="tns:findAll"/>
 </message>
@@ -36,6 +42,12 @@
 </message>
 <message name="edit">
 <part name="parameters" element="tns:edit"/>
+</message>
+<message name="decrementaFondos">
+<part name="parameters" element="tns:decrementaFondos"/>
+</message>
+<message name="decrementaFondosResponse">
+<part name="parameters" element="tns:decrementaFondosResponse"/>
 </message>
 <message name="updateFondosMedPag">
 <part name="parameters" element="tns:updateFondosMedPag"/>
@@ -58,6 +70,10 @@
 <operation name="create">
 <input wsam:Action="http://wsmediopago/WsMedioPago/create" message="tns:create"/>
 </operation>
+<operation name="findByIdfactura">
+<input wsam:Action="http://wsmediopago/WsMedioPago/findByIdfacturaRequest" message="tns:findByIdfactura"/>
+<output wsam:Action="http://wsmediopago/WsMedioPago/findByIdfacturaResponse" message="tns:findByIdfacturaResponse"/>
+</operation>
 <operation name="findAll">
 <input wsam:Action="http://wsmediopago/WsMedioPago/findAllRequest" message="tns:findAll"/>
 <output wsam:Action="http://wsmediopago/WsMedioPago/findAllResponse" message="tns:findAllResponse"/>
@@ -68,6 +84,10 @@
 </operation>
 <operation name="edit">
 <input wsam:Action="http://wsmediopago/WsMedioPago/edit" message="tns:edit"/>
+</operation>
+<operation name="decrementaFondos">
+<input wsam:Action="http://wsmediopago/WsMedioPago/decrementaFondosRequest" message="tns:decrementaFondos"/>
+<output wsam:Action="http://wsmediopago/WsMedioPago/decrementaFondosResponse" message="tns:decrementaFondosResponse"/>
 </operation>
 <operation name="updateFondosMedPag">
 <input wsam:Action="http://wsmediopago/WsMedioPago/updateFondosMedPagRequest" message="tns:updateFondosMedPag"/>
@@ -106,6 +126,15 @@
 <soap:body use="literal"/>
 </input>
 </operation>
+<operation name="findByIdfactura">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="findAll">
 <soap:operation soapAction=""/>
 <input>
@@ -129,6 +158,15 @@
 <input>
 <soap:body use="literal"/>
 </input>
+</operation>
+<operation name="decrementaFondos">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
 </operation>
 <operation name="updateFondosMedPag">
 <soap:operation soapAction=""/>

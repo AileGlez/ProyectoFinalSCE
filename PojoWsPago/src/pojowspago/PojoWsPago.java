@@ -80,7 +80,7 @@ public class PojoWsPago {
         //ASUMIMOS QUE SÍ HAY FONDOS (SI NO HAY NO SE COMPLETA LA TRANSACCIÓN i.e. SE REGRESA EL STOCK QUE ESTABA ON HOLD Y NO SE DECREMENTAN FONDOS)
         
         //3 SE DECREMENTAN LOS FONDOS DEL MÉTODO DE PAGO
-        System.out.println("Los fondos del medio de pago del cliente en el pedido 1 decrementaron y ahora el total de fondos es: "+updateFondosMedPag(f.getMediopagoId().getIdmedpago(),f.getTotalapagar(),true));
+        System.out.println("Los fondos del medio de pago del cliente en el pedido 1 decrementaron y ahora el total de fondos es: "+decrementaFondos(f.getIdfactura()));
         System.out.println("RESET y ahora el total de fondos es: "+updateFondosMedPag(f.getMediopagoId().getIdmedpago(),f.getTotalapagar(),false));//este resetea los fondos para que las pruebas no se compliquen
         //SE VA EL PEDIDO A ENVÍOS
         
@@ -117,18 +117,22 @@ public class PojoWsPago {
         return port.findByIdfactura(id);
     }
 
-    private static BigDecimal updateFondosMedPag(int idMedioPago, java.math.BigDecimal monto, boolean decrementa) {
-        wsmediopago.WsMedioPago_Service service = new wsmediopago.WsMedioPago_Service();
-        wsmediopago.WsMedioPago port = service.getWsMedioPagoPort();
-        return port.updateFondosMedPag(idMedioPago, monto, decrementa);
-    }
-
     private static int nuevoPedido(int idCliente, java.lang.String isbn, int cant) {
         tstpojowspago.WsPago_Service service = new tstpojowspago.WsPago_Service();
         tstpojowspago.WsPago port = service.getWsPagoPort();
         return port.nuevoPedido(idCliente, isbn, cant);
     }
+
+    private static BigDecimal decrementaFondos(int idFactura) {
+        wsmediopago.WsMedioPago_Service service = new wsmediopago.WsMedioPago_Service();
+        wsmediopago.WsMedioPago port = service.getWsMedioPagoPort();
+        return port.decrementaFondos(idFactura);
+    }
     
-    
+    private static BigDecimal updateFondosMedPag(int idMedioPago, java.math.BigDecimal monto, boolean decrementa) {
+        wsmediopago.WsMedioPago_Service service = new wsmediopago.WsMedioPago_Service();
+        wsmediopago.WsMedioPago port = service.getWsMedioPagoPort();
+        return port.updateFondosMedPag(idMedioPago, monto, decrementa);
+    }
     
 }

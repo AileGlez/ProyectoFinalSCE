@@ -41,5 +41,6 @@ public class EnvioFacade extends AbstractFacade<Envio> {
         queryByName.setParameter("deliveryDate", deliveryDate);
         List<Envio> listaEntrega = queryByName.getResultList();
         return listaEntrega;
-    }    
+    }
+
 }

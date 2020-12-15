@@ -5,16 +5,25 @@
  */
 package wsenvios;
 
+import entidades.Empresa;
 import entidades.Envio;
+import entidades.Factura;
 import frontera.EnvioFacade;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  *
@@ -72,6 +81,46 @@ public class WsEnvios {
     @WebMethod(operationName = "findByFechaEntrega")
     public List<Envio> fechaEntrega(@WebParam(name = "deliveryDate") Date deliveryDate) throws ParseException {
         return ejbRef.findByFechaEntrega(deliveryDate);
+    }
+    
+    
+    @WebMethod(operationName = "nuevoEnvio")
+    //public int nuevoEnvio(@WebParam(name = "idFactura") int idFactura) {
+    public int nuevoEnvio(@WebParam(name = "idFactura") int idFactura, @WebParam(name = "idEmpresa") int idEmpresa) {
+        //TODO write your implementation code here:
+        
+        Random rnd = new Random();
+        
+        GregorianCalendar gc = new GregorianCalendar();
+        int low = 0;
+        int high = 2;
+        int month = rnd.nextInt(high-low) + low;
+        low = 1;
+        high = 29; 
+        int day = rnd.nextInt(high-low)+low;
+        gc.set (2021, month, day); // Y/M-1/D (es decir, mes 0 es enero)       
+        XMLGregorianCalendar fechaAprox = null;
+        try {
+            fechaAprox = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
+        } catch (DatatypeConfigurationException ex) {
+            Logger.getLogger(WsEnvios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Factura factura = new Factura();
+        factura.setIdfactura(idFactura);       
+
+
+        Empresa empresa = new Empresa();
+        empresa.setIdempresa(idEmpresa);
+        
+        
+        Envio envio = new Envio();
+        
+        envio.setFechaentrega(fechaAprox.toGregorianCalendar().getTime());
+        envio.setFacturaId(factura);
+        envio.setEmpresaId(empresa);       
+        create(envio);
+        return envio.getIdenvio();
     }
 
 

@@ -5,6 +5,7 @@
  */
 package wsmediopago;
 
+import entidades.Factura;
 import entidades.Mediopago;
 import frontera.MediopagoFacade;
 import java.math.BigDecimal;
@@ -64,6 +65,12 @@ public class WsMedioPago {
         return ejbRef.count();
     }
     
+    //FINDBYIDFAC
+    @WebMethod(operationName = "findByIdfactura")
+    public List<Factura> findByIdfactura(@WebParam(name = "id") int id) {
+        return ejbRef.findByIdfactura(id);
+    }
+    
      //DECREMENTA FONDOS: recibe idMedioPago, monto y un booleano que en TRUE decrementa y en FALSE aumenta/ regresa nuevos fondos 
     /**
      * Web service operation
@@ -77,6 +84,32 @@ public class WsMedioPago {
             entity.setFondos(entity.getFondos().subtract(monto));
         else
             entity.setFondos(entity.getFondos().add(monto));
+        fondos=entity.getFondos();
+        ejbRef.edit(entity);
+        return fondos;
+    }
+    
+    //DECREMENTA FONDOS: recibe idFactura/ regresa nuevos fondos 
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "decrementaFondos")
+    public BigDecimal decrementaFondos(@WebParam(name = "idFactura") int idFactura) {
+        //TODO write your implementation code here:
+        java.util.List<Factura> listaF=findByIdfactura(idFactura);
+        Factura f= new Factura();
+        for(Factura fp:listaF)
+        {
+            f.setIdfactura(fp.getIdfactura());
+            f.setClienteId(fp.getClienteId());
+            f.setArticuloIsbn(fp.getArticuloIsbn());
+            f.setMediopagoId(fp.getMediopagoId());
+            f.setCantidad(fp.getCantidad());
+            f.setTotalapagar(fp.getTotalapagar());
+        }
+        BigDecimal fondos = null;
+        Mediopago entity = find(f.getMediopagoId().getIdmedpago());
+        entity.setFondos(entity.getFondos().subtract(f.getTotalapagar()));
         fondos=entity.getFondos();
         ejbRef.edit(entity);
         return fondos;
