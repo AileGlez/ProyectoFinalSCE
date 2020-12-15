@@ -84,10 +84,16 @@ public class WsEnvios {
         return ejbRef.findByFechaEntrega(deliveryDate);
     }
     
-    
+    //FINDBYIDFAC
+    @WebMethod(operationName = "findByIdfactura")
+    public List<Factura> findByIdfactura(@WebParam(name = "id") int id) {
+        return ejbRef.findByIdfactura(id);
+    }
+        
     @WebMethod(operationName = "nuevoEnvio")
     //public int nuevoEnvio(@WebParam(name = "idFactura") int idFactura) {
-    public int nuevoEnvio(@WebParam(name = "idFactura") int idFactura, @WebParam(name = "idEmpresa") int idEmpresa) {
+    public int nuevoEnvio(@WebParam(name = "idFactura") int idFactura) {
+        //public int nuevoEnvio(@WebParam(name = "idFactura") int idFactura, @WebParam(name = "idEmpresa") int idEmpresa) {
         //TODO write your implementation code here:
         
         Random rnd = new Random();
@@ -106,19 +112,24 @@ public class WsEnvios {
         } catch (DatatypeConfigurationException ex) {
             Logger.getLogger(WsEnvios.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        Factura factura = new Factura();
-        factura.setIdfactura(idFactura);       
-
-
-        Empresa empresa = new Empresa();
-        empresa.setIdempresa(idEmpresa);
-        
+         
+        java.util.List<Factura> listaF=findByIdfactura(idFactura);
+        Factura f= new Factura();
+        for(Factura fp:listaF)
+        {
+            f.setIdfactura(fp.getIdfactura());
+            f.setClienteId(fp.getClienteId());
+            f.setArticuloIsbn(fp.getArticuloIsbn());
+            f.setMediopagoId(fp.getMediopagoId());
+            f.setCantidad(fp.getCantidad());
+            f.setTotalapagar(fp.getTotalapagar());
+        }
+        Empresa empresa = f.getArticuloIsbn().getEmpresaId();
         
         Envio envio = new Envio();
         
         envio.setFechaentrega(fechaAprox.toGregorianCalendar().getTime());
-        envio.setFacturaId(factura);
+        envio.setFacturaId(f);
         envio.setEmpresaId(empresa);       
         create(envio);
         return envio.getIdenvio();

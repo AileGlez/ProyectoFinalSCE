@@ -7,6 +7,7 @@ package frontera;
 
 import entidades.Articulo;
 import entidades.Envio;
+import entidades.Factura;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,5 +42,15 @@ public class EnvioFacade extends AbstractFacade<Envio> {
         queryByName.setParameter("deliveryDate", deliveryDate);
         List<Envio> listaEntrega = queryByName.getResultList();
         return listaEntrega;
+    }
+    
+    public java.util.List<Factura> findByIdfactura(int id)
+    {
+        em = getEntityManager();
+        TypedQuery<Factura> queryFacById = em.createNamedQuery("Factura.findByIdfactura", Factura.class);
+        queryFacById.setParameter("idfactura", id);
+        java.util.List<Factura> lista= queryFacById.getResultList();
+
+        return lista;
     }
 }
