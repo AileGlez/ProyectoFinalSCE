@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <nextCatalog catalog="nbproject/private/retriever/catalog.xml"/>
+    <system systemId="http://localhost:8080/Tienda/WsAlmacen?WSDL" uri="src/ServicioAlmacen/localhost_8080/Tienda/WsAlmacen.wsdl"/>
+    <system systemId="http://localhost:8080/Tienda/WsAlmacen?xsd=1" uri="src/ServicioAlmacen/localhost_8080/Tienda/WsAlmacen.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Tienda/WsEnvios?WSDL" uri="src/ServicioEnvios/localhost_8080/Tienda/WsEnvios.wsdl"/>
+    <system systemId="http://localhost:8080/Tienda/WsEnvios?xsd=1" uri="src/ServicioEnvios/localhost_8080/Tienda/WsEnvios.xsd_1.xsd"/>
+</catalog>
