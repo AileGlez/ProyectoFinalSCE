@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for articulo complex type.
+ * <p>Clase Java para articulo complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="articulo">
@@ -47,7 +47,7 @@ public class Articulo {
     protected int stock;
 
     /**
-     * Gets the value of the empresaId property.
+     * Obtiene el valor de la propiedad empresaId.
      * 
      * @return
      *     possible object is
@@ -59,7 +59,7 @@ public class Articulo {
     }
 
     /**
-     * Sets the value of the empresaId property.
+     * Define el valor de la propiedad empresaId.
      * 
      * @param value
      *     allowed object is
@@ -71,7 +71,7 @@ public class Articulo {
     }
 
     /**
-     * Gets the value of the isbn property.
+     * Obtiene el valor de la propiedad isbn.
      * 
      * @return
      *     possible object is
@@ -83,7 +83,7 @@ public class Articulo {
     }
 
     /**
-     * Sets the value of the isbn property.
+     * Define el valor de la propiedad isbn.
      * 
      * @param value
      *     allowed object is
@@ -95,7 +95,7 @@ public class Articulo {
     }
 
     /**
-     * Gets the value of the nombre property.
+     * Obtiene el valor de la propiedad nombre.
      * 
      * @return
      *     possible object is
@@ -107,7 +107,7 @@ public class Articulo {
     }
 
     /**
-     * Sets the value of the nombre property.
+     * Define el valor de la propiedad nombre.
      * 
      * @param value
      *     allowed object is
@@ -119,7 +119,7 @@ public class Articulo {
     }
 
     /**
-     * Gets the value of the precio property.
+     * Obtiene el valor de la propiedad precio.
      * 
      * @return
      *     possible object is
@@ -131,7 +131,7 @@ public class Articulo {
     }
 
     /**
-     * Sets the value of the precio property.
+     * Define el valor de la propiedad precio.
      * 
      * @param value
      *     allowed object is
@@ -143,7 +143,7 @@ public class Articulo {
     }
 
     /**
-     * Gets the value of the stock property.
+     * Obtiene el valor de la propiedad stock.
      * 
      */
     public int getStock() {
@@ -151,7 +151,7 @@ public class Articulo {
     }
 
     /**
-     * Sets the value of the stock property.
+     * Define el valor de la propiedad stock.
      * 
      */
     public void setStock(int value) {

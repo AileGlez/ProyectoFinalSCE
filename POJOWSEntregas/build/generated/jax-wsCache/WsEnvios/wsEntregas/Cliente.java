@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for cliente complex type.
+ * <p>Clase Java para cliente complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="cliente">
@@ -58,7 +58,7 @@ public class Cliente {
     protected String telefono;
 
     /**
-     * Gets the value of the apmat property.
+     * Obtiene el valor de la propiedad apmat.
      * 
      * @return
      *     possible object is
@@ -70,7 +70,7 @@ public class Cliente {
     }
 
     /**
-     * Sets the value of the apmat property.
+     * Define el valor de la propiedad apmat.
      * 
      * @param value
      *     allowed object is
@@ -82,7 +82,7 @@ public class Cliente {
     }
 
     /**
-     * Gets the value of the appat property.
+     * Obtiene el valor de la propiedad appat.
      * 
      * @return
      *     possible object is
@@ -94,7 +94,7 @@ public class Cliente {
     }
 
     /**
-     * Sets the value of the appat property.
+     * Define el valor de la propiedad appat.
      * 
      * @param value
      *     allowed object is
@@ -106,7 +106,7 @@ public class Cliente {
     }
 
     /**
-     * Gets the value of the cp property.
+     * Obtiene el valor de la propiedad cp.
      * 
      */
     public int getCp() {
@@ -114,7 +114,7 @@ public class Cliente {
     }
 
     /**
-     * Sets the value of the cp property.
+     * Define el valor de la propiedad cp.
      * 
      */
     public void setCp(int value) {
@@ -122,7 +122,7 @@ public class Cliente {
     }
 
     /**
-     * Gets the value of the direccion property.
+     * Obtiene el valor de la propiedad direccion.
      * 
      * @return
      *     possible object is
@@ -134,7 +134,7 @@ public class Cliente {
     }
 
     /**
-     * Sets the value of the direccion property.
+     * Define el valor de la propiedad direccion.
      * 
      * @param value
      *     allowed object is
@@ -146,7 +146,7 @@ public class Cliente {
     }
 
     /**
-     * Gets the value of the email property.
+     * Obtiene el valor de la propiedad email.
      * 
      * @return
      *     possible object is
@@ -158,7 +158,7 @@ public class Cliente {
     }
 
     /**
-     * Sets the value of the email property.
+     * Define el valor de la propiedad email.
      * 
      * @param value
      *     allowed object is
@@ -170,7 +170,7 @@ public class Cliente {
     }
 
     /**
-     * Gets the value of the idcliente property.
+     * Obtiene el valor de la propiedad idcliente.
      * 
      * @return
      *     possible object is
@@ -182,7 +182,7 @@ public class Cliente {
     }
 
     /**
-     * Sets the value of the idcliente property.
+     * Define el valor de la propiedad idcliente.
      * 
      * @param value
      *     allowed object is
@@ -194,7 +194,7 @@ public class Cliente {
     }
 
     /**
-     * Gets the value of the mediopagoId property.
+     * Obtiene el valor de la propiedad mediopagoId.
      * 
      * @return
      *     possible object is
@@ -206,7 +206,7 @@ public class Cliente {
     }
 
     /**
-     * Sets the value of the mediopagoId property.
+     * Define el valor de la propiedad mediopagoId.
      * 
      * @param value
      *     allowed object is
@@ -218,7 +218,7 @@ public class Cliente {
     }
 
     /**
-     * Gets the value of the nombre property.
+     * Obtiene el valor de la propiedad nombre.
      * 
      * @return
      *     possible object is
@@ -230,7 +230,7 @@ public class Cliente {
     }
 
     /**
-     * Sets the value of the nombre property.
+     * Define el valor de la propiedad nombre.
      * 
      * @param value
      *     allowed object is
@@ -242,7 +242,7 @@ public class Cliente {
     }
 
     /**
-     * Gets the value of the telefono property.
+     * Obtiene el valor de la propiedad telefono.
      * 
      * @return
      *     possible object is
@@ -254,7 +254,7 @@ public class Cliente {
     }
 
     /**
-     * Sets the value of the telefono property.
+     * Define el valor de la propiedad telefono.
      * 
      * @param value
      *     allowed object is

@@ -7,6 +7,18 @@
     <service name="WsEnvios">
       <implementation-class>wsenvios.WsEnvios</implementation-class>
     </service>
+    <service name="WsArticulo">
+      <implementation-class>wsarticulo.WsArticulo</implementation-class>
+    </service>
+    <service name="WsPago">
+      <implementation-class>wspago.WsPago</implementation-class>
+    </service>
+    <service name="WsCliente">
+      <implementation-class>wscliente.WsCliente</implementation-class>
+    </service>
+    <service name="WsMedioPago">
+      <implementation-class>wsmediopago.WsMedioPago</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for mediopago complex type.
+ * <p>Clase Java para mediopago complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="mediopago">
@@ -38,7 +38,7 @@ public class Mediopago {
     protected Integer idmedpago;
 
     /**
-     * Gets the value of the fondos property.
+     * Obtiene el valor de la propiedad fondos.
      * 
      * @return
      *     possible object is
@@ -50,7 +50,7 @@ public class Mediopago {
     }
 
     /**
-     * Sets the value of the fondos property.
+     * Define el valor de la propiedad fondos.
      * 
      * @param value
      *     allowed object is
@@ -62,7 +62,7 @@ public class Mediopago {
     }
 
     /**
-     * Gets the value of the idmedpago property.
+     * Obtiene el valor de la propiedad idmedpago.
      * 
      * @return
      *     possible object is
@@ -74,7 +74,7 @@ public class Mediopago {
     }
 
     /**
-     * Sets the value of the idmedpago property.
+     * Define el valor de la propiedad idmedpago.
      * 
      * @param value
      *     allowed object is

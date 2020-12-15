@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-wsPago" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/wsPago"/>
+        <property name="wsdl-wsPago" location="xml-resources/web-service-references/wsPago/wsdl/localhost_8080/PagoTienda/wsPago.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/wsPago" destdir="${build.generated.dir}/jax-wsCache/wsPago" wsdl="${wsdl-wsPago}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/PagoTienda/wsPago?WSDL" xnocompile="true" xendorsed="true" package="tstpojowspago">
+            <depends file="${wsdl-wsPago}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/wsPago"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/wsPago">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-wsPago" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/wsPago"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/tstpojowspago"/>
+    </target>
+    <target name="wsimport-client-WsCliente" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WsCliente"/>
+        <property name="wsdl-WsCliente" location="xml-resources/web-service-references/WsCliente/wsdl/localhost_8080/PagoTienda/WsCliente.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WsCliente" destdir="${build.generated.dir}/jax-wsCache/WsCliente" wsdl="${wsdl-WsCliente}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/PagoTienda/WsCliente?WSDL" xnocompile="true" xendorsed="true" package="wscliente">
+            <depends file="${wsdl-WsCliente}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WsCliente"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WsCliente">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WsCliente" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WsCliente"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/wscliente"/>
+    </target>
+    <target name="wsimport-client-WsMedioPago" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WsMedioPago"/>
+        <property name="wsdl-WsMedioPago" location="xml-resources/web-service-references/WsMedioPago/wsdl/localhost_8080/PagoTienda/WsMedioPago.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WsMedioPago" destdir="${build.generated.dir}/jax-wsCache/WsMedioPago" wsdl="${wsdl-WsMedioPago}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/PagoTienda/WsMedioPago?WSDL" xnocompile="true" xendorsed="true" package="wsmediopago">
+            <depends file="${wsdl-WsMedioPago}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WsMedioPago"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WsMedioPago">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WsMedioPago" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WsMedioPago"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/wsmediopago"/>
+    </target>
+    <target name="wsimport-client-WsArticulo" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WsArticulo"/>
+        <property name="wsdl-WsArticulo" location="xml-resources/web-service-references/WsArticulo/wsdl/localhost_8080/PagoTienda/WsArticulo.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WsArticulo" destdir="${build.generated.dir}/jax-wsCache/WsArticulo" wsdl="${wsdl-WsArticulo}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/PagoTienda/WsArticulo?WSDL" xnocompile="true" xendorsed="true" package="wsarticulo">
+            <depends file="${wsdl-WsArticulo}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WsArticulo"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WsArticulo">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WsArticulo" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/WsArticulo"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/wsarticulo"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-wsPago, wsimport-client-WsCliente, wsimport-client-WsMedioPago, wsimport-client-WsArticulo"/>
+</project>

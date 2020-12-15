@@ -9,9 +9,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for envio complex type.
+ * <p>Clase Java para envio complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="envio">
@@ -46,7 +46,7 @@ public class Envio {
     protected Integer idenvio;
 
     /**
-     * Gets the value of the empresaId property.
+     * Obtiene el valor de la propiedad empresaId.
      * 
      * @return
      *     possible object is
@@ -58,7 +58,7 @@ public class Envio {
     }
 
     /**
-     * Sets the value of the empresaId property.
+     * Define el valor de la propiedad empresaId.
      * 
      * @param value
      *     allowed object is
@@ -70,7 +70,7 @@ public class Envio {
     }
 
     /**
-     * Gets the value of the facturaId property.
+     * Obtiene el valor de la propiedad facturaId.
      * 
      * @return
      *     possible object is
@@ -82,7 +82,7 @@ public class Envio {
     }
 
     /**
-     * Sets the value of the facturaId property.
+     * Define el valor de la propiedad facturaId.
      * 
      * @param value
      *     allowed object is
@@ -94,7 +94,7 @@ public class Envio {
     }
 
     /**
-     * Gets the value of the fechaentrega property.
+     * Obtiene el valor de la propiedad fechaentrega.
      * 
      * @return
      *     possible object is
@@ -106,7 +106,7 @@ public class Envio {
     }
 
     /**
-     * Sets the value of the fechaentrega property.
+     * Define el valor de la propiedad fechaentrega.
      * 
      * @param value
      *     allowed object is
@@ -118,7 +118,7 @@ public class Envio {
     }
 
     /**
-     * Gets the value of the idenvio property.
+     * Obtiene el valor de la propiedad idenvio.
      * 
      * @return
      *     possible object is
@@ -130,7 +130,7 @@ public class Envio {
     }
 
     /**
-     * Sets the value of the idenvio property.
+     * Define el valor de la propiedad idenvio.
      * 
      * @param value
      *     allowed object is

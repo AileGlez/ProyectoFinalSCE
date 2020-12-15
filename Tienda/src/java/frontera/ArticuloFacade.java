@@ -38,4 +38,14 @@ public class ArticuloFacade extends AbstractFacade<Articulo> {
         int valor = queryByName.getSingleResult().getStock();
         return valor;
     }
+      
+    public java.util.List<Articulo> findByNombre(String nom)
+    {
+        em = getEntityManager();
+        TypedQuery<Articulo> queryArtByName = em.createNamedQuery("Articulo.findByNombre", Articulo.class);
+        queryArtByName.setParameter("nombre", nom);
+        java.util.List<Articulo> lista= queryArtByName.getResultList();
+
+        return lista;
+    }
 }

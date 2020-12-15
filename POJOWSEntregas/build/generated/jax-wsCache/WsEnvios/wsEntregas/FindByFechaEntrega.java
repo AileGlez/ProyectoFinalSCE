@@ -9,9 +9,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for findByFechaEntrega complex type.
+ * <p>Clase Java para findByFechaEntrega complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="findByFechaEntrega">
@@ -37,7 +37,7 @@ public class FindByFechaEntrega {
     protected XMLGregorianCalendar deliveryDate;
 
     /**
-     * Gets the value of the deliveryDate property.
+     * Obtiene el valor de la propiedad deliveryDate.
      * 
      * @return
      *     possible object is
@@ -49,7 +49,7 @@ public class FindByFechaEntrega {
     }
 
     /**
-     * Sets the value of the deliveryDate property.
+     * Define el valor de la propiedad deliveryDate.
      * 
      * @param value
      *     allowed object is

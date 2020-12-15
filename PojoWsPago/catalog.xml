@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/PagoTienda/wsPago?WSDL" uri="xml-resources/web-service-references/wsPago/wsdl/localhost_8080/PagoTienda/wsPago.wsdl"/>
+    <system systemId="http://localhost:8080/PagoTienda/wsPago?xsd=1" uri="xml-resources/web-service-references/wsPago/wsdl/localhost_8080/PagoTienda/wsPago.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/PagoTienda/WsCliente?WSDL" uri="xml-resources/web-service-references/WsCliente/wsdl/localhost_8080/PagoTienda/WsCliente.wsdl"/>
+    <system systemId="http://localhost:8080/PagoTienda/WsCliente?xsd=1" uri="xml-resources/web-service-references/WsCliente/wsdl/localhost_8080/PagoTienda/WsCliente.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/PagoTienda/WsMedioPago?WSDL" uri="xml-resources/web-service-references/WsMedioPago/wsdl/localhost_8080/PagoTienda/WsMedioPago.wsdl"/>
+    <system systemId="http://localhost:8080/PagoTienda/WsMedioPago?xsd=1" uri="xml-resources/web-service-references/WsMedioPago/wsdl/localhost_8080/PagoTienda/WsMedioPago.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/PagoTienda/WsArticulo?WSDL" uri="xml-resources/web-service-references/WsArticulo/wsdl/localhost_8080/PagoTienda/WsArticulo.wsdl"/>
+    <system systemId="http://localhost:8080/PagoTienda/WsArticulo?xsd=1" uri="xml-resources/web-service-references/WsArticulo/wsdl/localhost_8080/PagoTienda/WsArticulo.xsd_1.xsd"/>
+</catalog>

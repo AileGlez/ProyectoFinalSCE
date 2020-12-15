@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for factura complex type.
+ * <p>Clase Java para factura complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="factura">
@@ -50,7 +50,7 @@ public class Factura {
     protected BigDecimal totalapagar;
 
     /**
-     * Gets the value of the articuloIsbn property.
+     * Obtiene el valor de la propiedad articuloIsbn.
      * 
      * @return
      *     possible object is
@@ -62,7 +62,7 @@ public class Factura {
     }
 
     /**
-     * Sets the value of the articuloIsbn property.
+     * Define el valor de la propiedad articuloIsbn.
      * 
      * @param value
      *     allowed object is
@@ -74,7 +74,7 @@ public class Factura {
     }
 
     /**
-     * Gets the value of the cantidad property.
+     * Obtiene el valor de la propiedad cantidad.
      * 
      */
     public int getCantidad() {
@@ -82,7 +82,7 @@ public class Factura {
     }
 
     /**
-     * Sets the value of the cantidad property.
+     * Define el valor de la propiedad cantidad.
      * 
      */
     public void setCantidad(int value) {
@@ -90,7 +90,7 @@ public class Factura {
     }
 
     /**
-     * Gets the value of the clienteId property.
+     * Obtiene el valor de la propiedad clienteId.
      * 
      * @return
      *     possible object is
@@ -102,7 +102,7 @@ public class Factura {
     }
 
     /**
-     * Sets the value of the clienteId property.
+     * Define el valor de la propiedad clienteId.
      * 
      * @param value
      *     allowed object is
@@ -114,7 +114,7 @@ public class Factura {
     }
 
     /**
-     * Gets the value of the idfactura property.
+     * Obtiene el valor de la propiedad idfactura.
      * 
      * @return
      *     possible object is
@@ -126,7 +126,7 @@ public class Factura {
     }
 
     /**
-     * Sets the value of the idfactura property.
+     * Define el valor de la propiedad idfactura.
      * 
      * @param value
      *     allowed object is
@@ -138,7 +138,7 @@ public class Factura {
     }
 
     /**
-     * Gets the value of the mediopagoId property.
+     * Obtiene el valor de la propiedad mediopagoId.
      * 
      * @return
      *     possible object is
@@ -150,7 +150,7 @@ public class Factura {
     }
 
     /**
-     * Sets the value of the mediopagoId property.
+     * Define el valor de la propiedad mediopagoId.
      * 
      * @param value
      *     allowed object is
@@ -162,7 +162,7 @@ public class Factura {
     }
 
     /**
-     * Gets the value of the totalapagar property.
+     * Obtiene el valor de la propiedad totalapagar.
      * 
      * @return
      *     possible object is
@@ -174,7 +174,7 @@ public class Factura {
     }
 
     /**
-     * Sets the value of the totalapagar property.
+     * Define el valor de la propiedad totalapagar.
      * 
      * @param value
      *     allowed object is
