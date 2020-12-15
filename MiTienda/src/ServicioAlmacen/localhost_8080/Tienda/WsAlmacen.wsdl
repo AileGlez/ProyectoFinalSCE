@@ -52,6 +52,12 @@
 <message name="edit">
 <part name="parameters" element="tns:edit"/>
 </message>
+<message name="updateStock">
+<part name="parameters" element="tns:updateStock"/>
+</message>
+<message name="updateStockResponse">
+<part name="parameters" element="tns:updateStockResponse"/>
+</message>
 <portType name="WsAlmacen">
 <operation name="remove">
 <input wsam:Action="http://wsalmacen/WsAlmacen/remove" message="tns:remove"/>
@@ -86,6 +92,10 @@
 </operation>
 <operation name="edit">
 <input wsam:Action="http://wsalmacen/WsAlmacen/edit" message="tns:edit"/>
+</operation>
+<operation name="updateStock">
+<input wsam:Action="http://wsalmacen/WsAlmacen/updateStockRequest" message="tns:updateStock"/>
+<output wsam:Action="http://wsalmacen/WsAlmacen/updateStockResponse" message="tns:updateStockResponse"/>
 </operation>
 </portType>
 <binding name="WsAlmacenPortBinding" type="tns:WsAlmacen">
@@ -164,6 +174,15 @@
 <input>
 <soap:body use="literal"/>
 </input>
+</operation>
+<operation name="updateStock">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
 </operation>
 </binding>
 <service name="WsAlmacen">

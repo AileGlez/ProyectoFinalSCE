@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WsPagoWrapper" targetNamespace="http://enterprise.netbeans.org/bpel/WsPagoWrapper" xmlns:tns="http://enterprise.netbeans.org/bpel/WsPagoWrapper" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns="http://wspago/">
+    <import location="http://localhost:8080/Tienda/WsPago?WSDL" namespace="http://wspago/"/>
+    <plnk:partnerLinkType name="WsPagoLinkType">
+        <plnk:role name="WsPagoRole" portType="ns:WsPago"/>
+    </plnk:partnerLinkType>
+</definitions>
