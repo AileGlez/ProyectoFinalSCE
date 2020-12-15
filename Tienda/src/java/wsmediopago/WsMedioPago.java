@@ -32,7 +32,7 @@ public class WsMedioPago {
     public void create(@WebParam(name = "entity") Mediopago entity) {
         ejbRef.create(entity);
     }
-
+    /*
     @WebMethod(operationName = "edit")
     @Oneway
     public void edit(@WebParam(name = "entity") Mediopago entity) {
@@ -43,7 +43,7 @@ public class WsMedioPago {
     @Oneway
     public void remove(@WebParam(name = "entity") Mediopago entity) {
         ejbRef.remove(entity);
-    }
+    }*/
 
     @WebMethod(operationName = "find")
     public Mediopago find(@WebParam(name = "id") Object id) {
@@ -54,7 +54,7 @@ public class WsMedioPago {
     public List<Mediopago> findAll() {
         return ejbRef.findAll();
     }
-
+    /*
     @WebMethod(operationName = "findRange")
     public List<Mediopago> findRange(@WebParam(name = "range") int[] range) {
         return ejbRef.findRange(range);
@@ -63,7 +63,7 @@ public class WsMedioPago {
     @WebMethod(operationName = "count")
     public int count() {
         return ejbRef.count();
-    }
+    }*/
     
     //FINDBYIDFAC
     @WebMethod(operationName = "findByIdfactura")

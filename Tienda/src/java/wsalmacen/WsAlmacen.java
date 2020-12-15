@@ -32,19 +32,20 @@ public class WsAlmacen {
         String idArticulo = entity.getIsbn(); 
         return idArticulo;
     }
-
+    /*
     @WebMethod(operationName = "edit")
     @Oneway
     public void edit(@WebParam(name = "entity") Articulo entity) {
         ejbRef.edit(entity);
     }
-
+    *//*
     @WebMethod(operationName = "remove")
     @Oneway
     public void remove(@WebParam(name = "entity") Articulo entity) {
         ejbRef.remove(entity);
     }
-
+    */
+    
     //Encuentra por ISBN 
     @WebMethod(operationName = "find")
     public Articulo find(@WebParam(name = "id") String id) {
@@ -55,16 +56,16 @@ public class WsAlmacen {
     public List<Articulo> findAll() {
         return ejbRef.findAll();
     }
-
+    /*
     @WebMethod(operationName = "findRange")
     public List<Articulo> findRange(@WebParam(name = "range") int[] range) {
         return ejbRef.findRange(range);
-    }
-
+    }*/
+    /*
     @WebMethod(operationName = "count")
     public int count() {
         return ejbRef.count();
-    }
+    }*/
     
     @WebMethod(operationName = "findByIsbn")
     public int findByIsbn(@WebParam(name = "isbn") String isbn) {

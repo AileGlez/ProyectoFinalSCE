@@ -42,5 +42,4 @@ public class EnvioFacade extends AbstractFacade<Envio> {
         List<Envio> listaEntrega = queryByName.getResultList();
         return listaEntrega;
     }
-
 }

@@ -43,7 +43,8 @@ public class WsEnvios {
         int idEnvio = entity.getIdenvio();
         return idEnvio;
     }
-
+    
+    /*
     @WebMethod(operationName = "edit")
     @Oneway
     public void edit(@WebParam(name = "entity") Envio entity) {
@@ -59,13 +60,13 @@ public class WsEnvios {
     @WebMethod(operationName = "find")
     public Envio find(@WebParam(name = "id") Object id) {
         return ejbRef.find(id);
-    }
+    }*/
 
     @WebMethod(operationName = "findAll")
     public List<Envio> findAll() {
         return ejbRef.findAll();
     }
-
+    /*
     @WebMethod(operationName = "findRange")
     public List<Envio> findRange(@WebParam(name = "range") int[] range) {
         return ejbRef.findRange(range);
@@ -74,7 +75,7 @@ public class WsEnvios {
     @WebMethod(operationName = "count")
     public int count() {
         return ejbRef.count();
-    }
+    }*/
     
     
     // Encontrar por fecha de entrega (saber si ya se entregó o no)

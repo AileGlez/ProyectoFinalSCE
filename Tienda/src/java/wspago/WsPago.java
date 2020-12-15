@@ -35,7 +35,7 @@ public class WsPago {
     public void create(@WebParam(name = "entity") Factura entity) {
         ejbRef.create(entity);
     }
-
+    /*
     @WebMethod(operationName = "edit")
     @Oneway
     public void edit(@WebParam(name = "entity") Factura entity) {
@@ -51,13 +51,13 @@ public class WsPago {
     @WebMethod(operationName = "find")
     public Factura find(@WebParam(name = "id") Object id) {
         return ejbRef.find(id);
-    }
+    }*/
 
     @WebMethod(operationName = "findAll")
     public List<Factura> findAll() {
         return ejbRef.findAll();
     }
-
+    /*
     @WebMethod(operationName = "findRange")
     public List<Factura> findRange(@WebParam(name = "range") int[] range) {
         return ejbRef.findRange(range);
@@ -66,7 +66,7 @@ public class WsPago {
     @WebMethod(operationName = "count")
     public int count() {
         return ejbRef.count();
-    }
+    }*/
     
         //FINDBYIDFAC
     @WebMethod(operationName = "findByIdfactura")
