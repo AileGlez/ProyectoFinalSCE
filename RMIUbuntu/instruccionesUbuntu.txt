@@ -1,0 +1,64 @@
+0) compile con gcc el programa estresador.c y genere el ejecutable estresador por medio de los comandos (requiere gcc)
+
+    gcc estresador.c
+    mv a.out estresador
+    chmod +x estresador
+
+
+1) En caso de que no tenga definido el distro de java para ser ejecutado de manera automática debe configurar el archivo cjk.bat para que 
+   defina el path y el classpath y cambie la carpeta a donde van a ejecutarse los shells para el estresamiento.
+   Puede consultar el valor del PATH por medio de la instrucción
+
+      echo $PATH
+
+   Para cambiar este valor de forma temporal lo puede hacer con la instrucción
+
+   export PATH=/new/toolchain/path:$PATH
+
+   defina de igual forma el símbolo CLASSPATH en caso de requerirlo.
+
+   NOTA: es posible consultar la totalidad de símbolos definidos con el comando env, pero entrega "too much information" 
+         y hay que buscar los símbolos con detenimiento.
+
+2) El comando para cambiar de carpetas es cd /carpeta_1/carpeta_2/etc
+
+   OTRA NOTA: si los archivos en shell no ejecutan es posible que les falten los permisos de ejecución, en tal caso debe volverlos
+              "ejecutable" por medio de la orden 
+
+                      chmod +x archivo.sh
+
+3) Ejecute el comado gen se ejecuta por medio de la orden
+   
+           ./gen.sh
+
+   se generan 4 ventanas en xterm.
+
+4) Arregle las ventanas de trabajo.
+
+5) En la ventana 1 ejecute el shell ./0_unaSolaVez.sh para lanzar el rmiregistry. Lo lanza en "background" sin generar ninguna ventana.
+   Para verificar que está ejecutando hágalo por medio del comando
+
+     ps -al
+
+6) En la ventana 1 ejecute el proceso de servicio por medio del comando
+
+       ./1_ejes.sh
+
+7) En la ventana 2 ejecute el servidor de disparo por medio del comando
+
+       ./2_ejesd.sh
+
+8) En la ventana 3 disponga (sin ejecutarlo) ./3_ejem.sh para que al darle el enter se inicie el master de tiempo de stress.
+
+9) En la ventana 4 disponga (sin ejecutarlo) ./4_estressa.sh para lanzar los clientes de estresamiento.
+
+10) De enter en la ventana 3.
+
+11) De enter en la ventana 4.
+
+12) Observe lo que ocurre en las ventanas 1 y 4 y espere a que queden sin actividad.
+
+13) En la ventana 3 ejecute ./5_ejer.sh para obtener las estadísticas del estresamiento.
+      
+
+
