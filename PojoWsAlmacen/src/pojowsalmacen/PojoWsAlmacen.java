@@ -5,6 +5,8 @@
  */
 package pojowsalmacen;
 
+import wsalmacen.Articulo;
+
 /**
  *
  * @author tabat
@@ -24,15 +26,26 @@ public class PojoWsAlmacen {
                   System.out.println("No es posible realizar la orden ");
               }else{
                   System.out.println("Es posible realizar la orden");
-              }
-              
-             // updateStock(a.getIsbn(),5,2);
+              }  
           }
           
           
+          System.out.println("\n \n ---------------- unidades que se piden son 5 -------Stock actualizado al comprobar stock---------------------");
+          wsalmacen.Articulo articulo = find("0000000000001"); 
+          System.out.println("ISBN: " + articulo.getIsbn()+
+                      "\n Nombre: " + articulo.getNombre()+
+                      "\n Precio: " + articulo.getPrecio()+
+                      "\n Stock: "+ articulo.getStock());
               
-          
+          System.out.println("\n \n ----------------incrementa stock  en 5---------------------");
+         updateStock("0000000000001",5,1);
            
+          System.out.println("\n \n----------------Stock actualizado incrementar stock---------------------");
+          wsalmacen.Articulo articulo1 = find("0000000000001"); 
+          System.out.println("ISBN: " + articulo1.getIsbn()+
+                      "\n Nombre: " + articulo1.getNombre()+
+                      "\n Precio: " + articulo1.getPrecio()+
+                      "\n Stock: "+ articulo1.getStock());
     }
 
     private static void create(wsalmacen.Articulo entity) {
@@ -57,6 +70,12 @@ public class PojoWsAlmacen {
         wsalmacen.WsAlmacen_Service service = new wsalmacen.WsAlmacen_Service();
         wsalmacen.WsAlmacen port = service.getWsAlmacenPort();
         return port.updateStock(isbn, unidades, arg2);
+    }
+
+    private static Articulo find(java.lang.String id) {
+        wsalmacen.WsAlmacen_Service service = new wsalmacen.WsAlmacen_Service();
+        wsalmacen.WsAlmacen port = service.getWsAlmacenPort();
+        return port.find(id);
     }
 
 
